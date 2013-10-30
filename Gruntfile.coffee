@@ -33,8 +33,6 @@ module.exports = (grunt) ->
         options:
           client: false
           pretty: true
-          analytics_id: ''
-          fs: fs
           src_path: 'client/site/examples/src/'
         files: {'public/': ['client/site/views/**/*.jade']}
 

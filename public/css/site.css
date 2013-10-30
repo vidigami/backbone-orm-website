@@ -15,6 +15,7 @@ ul.nav.navbar-nav .dropdown-menu > li > a:hover{color:#fff;background-color:#8cc
 .container .jumbotron{-webkit-border-radius:0;border-radius:0;text-align:center;color:#fff;background:#8cc542;}
 .container .jumbotron .btn-xl{color:#fff;background:#f69220;}
 .container .jumbotron .btn-xl:hover{color:#fff;background:#b5671a}
+.language-toggle{margin-top:20px;}
 .language-toggle i{margin-left:5px}
 .btn{background:#8cc542;border-color:#7aba28;color:#fff;}
 .btn:hover{color:#fff;background:#7aba28}
