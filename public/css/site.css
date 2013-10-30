@@ -1,0 +1,22 @@
+
+body{font-size:18px}
+.navbar{background:#fff;position:fixed;top:0;right:0;left:0;min-width:500px;z-index:10;-webkit-box-shadow:0 1px 8px rgba(0,0,0,0.5);box-shadow:0 1px 8px rgba(0,0,0,0.5);border:0;}
+.navbar .form-control{height:26px;color:#333}
+.navbar .form-inline{padding:7px 20px 0 0;}
+.navbar .form-inline .btn{margin-top:6px}
+.corporate.navbar.visible-sm .form-inline{width:410px;}
+.corporate.navbar.visible-sm .form-inline label{width:150px}
+ul.nav.navbar-nav li a{padding:15px 8px;color:#666}
+ul.nav.navbar-nav li.active a{background-color:#8cc542;color:#fff}
+ul.nav.navbar-nav .dropdown-menu > li > a{padding:3px 20px;}
+ul.nav.navbar-nav .dropdown-menu > li > a:hover{color:#fff;background-color:#8cc542;background-image:none}
+.container.main{margin-top:50px;max-width:100%;padding:0;min-width:480px;min-height:100%;position:relative;padding-bottom:350px}
+.row{width:100%;padding:0;margin:0}
+.container .jumbotron{-webkit-border-radius:0;border-radius:0;text-align:center;color:#fff;background:#8cc542;}
+.container .jumbotron .btn-xl{color:#fff;background:#f69220;}
+.container .jumbotron .btn-xl:hover{color:#fff;background:#b5671a}
+.language-toggle i{margin-left:5px}
+.btn{background:#8cc542;border-color:#7aba28;color:#fff;}
+.btn:hover{color:#fff;background:#7aba28}
+.btn.btn-lg{height:40px;font-size:18px;line-height:18px;margin-bottom:20px}
+.btn.btn-xl{height:80px;font-size:36px;line-height:65px;margin-bottom:40px;padding:6px 36px}

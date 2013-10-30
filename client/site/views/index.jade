@@ -1,0 +1,34 @@
+extends _base
+
+block body
+  .container.main
+    .jumbotron
+      h1 Backbone ORM
+      p A paragraph
+      .row
+        .col-lg-6.col-md-6
+          h2 Install
+          pre
+            code
+              | npm install backbone-orm
+        .col-lg-6.col-md-6
+          h2 Get the client side JavaScript
+          a.btn.btn-xl Download
+
+    .row
+      .col-lg-12.col-md-12
+        a.btn.btn-xs.language-toggle.pull-right
+          span CoffeeScript
+          i.glyphicon.glyphicon-random
+    .row
+      .col-lg-6.col-md-6
+        include ../examples/markdown/example.md
+      .col-lg-6.col-md-6
+        div.example.coffeescript
+          pre
+            code.language-coffeescript
+              include ../examples/coffee/example.coffee.txt
+        div.example.javascript
+          pre
+            code.language-javascript
+              include ../examples/js/example.js.txt

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Vidigami</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/css/vendor.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <script src="/js/vendor.js"></script>
+  <script src="/js/site.js"></script>
+</head>
+<body>
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header"><a href="/" class="navbar-brand">Backbone-ORM</a></div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/docs">Docs</a></li>
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Components<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/">backbone-orm</a></li>
+              <li class="divider"></li>
+              <li><a href="/mongo">backbone-mongo</a></li>
+              <li><a href="/sql">backbone-sql</a></li>
+              <li class="divider"></li>
+              <li><a href="/http">backbone-http</a></li>
+              <li><a href="/rest">backbone-rest</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container main">
+    <div class="jumbotron">
+      <h1>Backbone ORM</h1>
+      <p>A paragraph</p>
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <h2>Install</h2>
+          <pre><code>npm install backbone-orm</code></pre>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <h2>Get the client side JavaScript</h2><a class="btn btn-xl">Download</a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6"><h3>Unified query syntax</h3>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <div class="example coffeescript">
+          <pre><code class="language-coffeescript"># Unified query syntax
+Model.find {name: 'Foo'}, (err, model) =>
+  console.log "Hello, #{model.get('name')}"
+</code></pre>
+        </div>
+        <div class="example javascript">
+          <pre><code class="language-javascript">// Unified query syntax
+Model.find({name: 'Foo'}, function(err, model) {
+  console.log("Hello, " + (model.get('name')));
+});
+</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

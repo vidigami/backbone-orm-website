@@ -1,0 +1,34 @@
+{
+  "name": "corporate-vidigami",
+  "version": "0.0.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/vidigami/corporate.vidigami.com.git"
+  },
+  "scripts": {
+    "start": "grunt"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.3.x"
+  },
+  "devDependencies": {
+    "coffee-script": "*",
+    "jade": "*",
+    "stylus": "*",
+    "nib": "*",
+    "markdown": "*",
+    "underscore": "*",
+    "grunt": "*",
+    "grunt-cli": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-coffee": "*",
+    "grunt-jade": "*",
+    "grunt-contrib-stylus": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-cssmin": "*"
+  }
+}

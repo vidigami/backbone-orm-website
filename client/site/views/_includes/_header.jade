@@ -1,0 +1,30 @@
+
+.navbar.navbar-default.navbar-fixed-top
+  .container
+
+    .navbar-header
+      a.navbar-brand(href='/') Backbone-ORM
+
+    .navbar-collapse.collapse
+      ul.nav.navbar-nav.navbar-right
+        li.active
+          a(href='/') Home
+        li
+          a(href='/docs') Docs
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown')
+            | Components
+            b.caret
+          ul.dropdown-menu
+            li
+              a(href='/') backbone-orm
+            li.divider
+            li
+              a(href='/mongo') backbone-mongo
+            li
+              a(href='/sql') backbone-sql
+            li.divider
+            li
+              a(href='/http') backbone-http
+            li
+              a(href='/rest') backbone-rest

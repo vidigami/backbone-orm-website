@@ -1,0 +1,106 @@
+@import 'nib'
+@import 'colors'
+
+// Typography //
+
+body
+  font-size: 18px
+
+
+//Header//
+
+.navbar
+  background: bg
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  min-width: 500px
+  z-index: 10
+  box-shadow: 0 1px 8px rgba(0,0,0,0.5)
+  border: 0
+  .form-control
+    height: 26px
+    color: text_darkest
+  .form-inline
+    padding: 7px 20px 0 0
+    .btn
+      margin-top: 6px
+
+.corporate.navbar.visible-sm
+  .form-inline
+    width: 410px
+    label
+      width: 150px
+
+ul.nav.navbar-nav
+  li
+    a
+      padding: 15px 8px
+      color: text_darker
+    &.active
+      a
+        background-color: vidi_green
+        color: text_lightest
+
+  .dropdown-menu
+    > li
+      > a
+        padding: 3px 20px
+        &:hover
+          color: text_lightest
+          background-color: vidi_green
+          background-image: none
+
+// Main //
+.container.main
+  margin-top: 50px
+  max-width: 100%
+  padding: 0
+  min-width: 480px
+  min-height: 100%
+  position: relative
+  padding-bottom: 350px
+
+.row
+  width: 100%
+  padding: 0
+  margin: 0
+
+// Jumbo //
+.container .jumbotron
+  border-radius: 0
+  text-align: center
+  color: text_lightest
+  background: vidi_green
+  .btn-xl
+    color: text_lightest
+    background: vidi_orange
+    &:hover
+      color: text_lightest
+      background: vidi_darkorange
+
+// Examples //
+.language-toggle i
+  margin-left: 5px
+
+// Buttons //
+.btn
+  background: vidi_green
+  border-color: vidi_hovergreen
+  color: text_lightest
+  &:hover
+    color: text_lightest
+    background: vidi_hovergreen
+
+  &.btn-lg
+    height: 40px
+    font-size: 18px
+    line-height: 18px
+    margin-bottom: 20px
+  &.btn-xl
+    height: 80px
+    font-size: 36px
+    line-height: 65px
+    margin-bottom: 40px
+    padding: 6px 36px
