@@ -1,10 +1,10 @@
 extends _base
 
 block body
-  .container.main
+  .container.jumbo
     .jumbotron
       h1 Backbone ORM
-      p A paragraph
+      p A polystore ORM for Node.js and the browser
       .row
         .col-lg-6.col-md-6
           h2 Install
@@ -14,6 +14,7 @@ block body
         .col-lg-6.col-md-6
           h2 Get the client side JavaScript
           a.btn.btn-xl Download
-
+  .container.main
     include _examples/_start_sync
     include _examples/_start_urls
+    include _examples/_callback_signature

@@ -11,8 +11,6 @@ a bit more information, namely filling in the <code>urlRoot</code> property.</p>
 <p>Here we set our models <code>urlRoot</code> to a connection string specifying our mongodb database and collection.</p>
 
 <p>Since we&#39;re using MongoDB here, we&#39;ll use a Sync that knows how to persist to Mongo: <code>MongoSync</code>.</p>
-
-<ul><li>Give them an urlRoot (or url) that points to the database</li><li>hasOne: A foreign key to this model is placed on the related model</li><li>hasMany: A foreign key to this model is placed on the related model, and the relation will return a set of models when accessed</li><li>manyToMany: A join table is automatically created with foreign keys to each side of the relation.</li></ul>
   </div>
   <div class="col-lg-6 col-md-6">
     <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>

@@ -10,11 +10,12 @@ ul.nav.navbar-nav li a{padding:15px 8px;color:#666}
 ul.nav.navbar-nav li.active a{background-color:#8cc542;color:#fff}
 ul.nav.navbar-nav .dropdown-menu > li > a{padding:3px 20px;}
 ul.nav.navbar-nav .dropdown-menu > li > a:hover{color:#fff;background-color:#8cc542;background-image:none}
-.container.main{margin-top:50px;max-width:100%;padding:0;min-width:480px;min-height:100%;position:relative;padding-bottom:350px}
+.container.main{padding-bottom:350px}
 .row{width:100%;padding:0;margin:0}
-.container .jumbotron{-webkit-border-radius:0;border-radius:0;text-align:center;color:#fff;background:#8cc542;}
-.container .jumbotron .btn-xl{color:#fff;background:#f69220;}
-.container .jumbotron .btn-xl:hover{color:#fff;background:#b5671a}
+.container.jumbo{padding:0;margin-top:50px;max-width:100%;}
+.container.jumbo .jumbotron{-webkit-border-radius:0;border-radius:0;text-align:center;color:#fff;background:#8cc542;}
+.container.jumbo .jumbotron .btn-xl{color:#fff;background:#f69220;}
+.container.jumbo .jumbotron .btn-xl:hover{color:#fff;background:#b5671a}
 .language-toggle{margin-top:20px;}
 .language-toggle i{margin-left:5px}
 .btn{background:#8cc542;border-color:#7aba28;color:#fff;}

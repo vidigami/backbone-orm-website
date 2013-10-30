@@ -1,7 +1,7 @@
 Introduction
 ============
 
-The Vidigami corporate website project. It uses Jade and Stylus to generate a static website.
+The backbone-orm-website project. It uses Jade and Stylus to generate a static website.
 
 Application Architecture
 =======
@@ -13,7 +13,7 @@ client - source assets
     - scripts: javascript files
     - styles: [stylus](http://learnboost.github.io/stylus/) files that get compiled to css
     - views: [jade](http://jade-lang.com/) files that get compiles to html
-- vendor: 3rd party libraries that are used by the Vidigami corporate website
+- vendor: 3rd party libraries
     - assets: non-script and non-css files (they don't get minified)
         - fonts
         - images
