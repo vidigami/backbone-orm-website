@@ -1,5 +1,7 @@
-util = require 'util'
 _ = require 'underscore'
+
+BUILD_TASKS = ['copy', 'concat', 'coffee', 'stylus', 'jade']
+RELEASE_TASKS = BUILD_TASKS.concat(['uglify:site', 'cssmin:site'])
 
 module.exports = (grunt) ->
 
@@ -18,7 +20,7 @@ module.exports = (grunt) ->
       examples: {expand: true, cwd: 'client/site/examples/coffee', src: '**/*.coffee', dest: 'client/site/examples/coffee/_compiled', ext: '.js'}
 
     jade:
-      site_views:
+      site:
         options:
           client: false
           pretty: true
@@ -26,16 +28,22 @@ module.exports = (grunt) ->
         files: {'public/': ['client/site/views/**/*.jade']}
 
     stylus:
-      site_styles: {files: {'public/css/site.css': ['client/site/styles/*.styl']}}
+      site: {files: {'public/css/site.css': ['client/site/styles/*.styl']}}
 
     concat:
       vendor_styles: {src: 'client/vendor/styles/**/*', dest: 'public/css/vendor.css'}
       vendor_scripts: {src: 'client/vendor/scripts/**/*', dest: 'public/js/vendor.js'}
 
+    uglify:
+      site: {expand: true, cwd: 'public/js/', src: ['*.js', '!*.min.js', '!*-min.js'], dest: 'public/js/', ext: '.js'}
+
+    cssmin:
+      site: {expand: true, cwd: 'public/css/', src: ['*.css', '!*.min.css', '!*-min.css'], dest: 'public/css/', ext: '.css'}
+
     watch:
       app:
         files: ['client/**/*']
-        tasks: ['copy', 'concat', 'coffee', 'stylus', 'jade']
+        tasks: BUILD_TASKS
 
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-concat'
@@ -43,7 +51,9 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-jade'
   grunt.loadNpmTasks 'grunt-contrib-stylus'
+  grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-cssmin'
   grunt.loadNpmTasks 'grunt-contrib-watch'
 
-  grunt.registerTask 'default', ['copy', 'concat', 'coffee', 'stylus', 'jade']
+  grunt.registerTask 'default', ['clean'].concat(BUILD_TASKS).concat(['watch'])
+  grunt.registerTask 'release', ['clean'].concat(RELEASE_TASKS)

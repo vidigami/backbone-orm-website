@@ -29,6 +29,7 @@
     "grunt-jade": "*",
     "grunt-contrib-stylus": "*",
     "grunt-contrib-concat": "*",
+    "grunt-contrib-uglify": "*",
     "grunt-contrib-cssmin": "*"
   }
 }
