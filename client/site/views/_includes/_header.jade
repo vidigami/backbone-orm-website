@@ -3,14 +3,18 @@
   .container
 
     .navbar-header
-      a.navbar-brand(href='/') Backbone-ORM
+      ul.nav.navbar-nav
+        li
+          a.lizard(href='https://www.vidigami.com')
+            image(src='./images/vidigami-lizard.png')
+      a.navbar-brand(href='/') backbone-orm
 
     .navbar-collapse.collapse
       ul.nav.navbar-nav.navbar-right
         li.active
           a(href='/') Home
         li
-          a(href='/docs') Docs
+          a(href='./docs/index.html') Docs
         li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown')
             | Components

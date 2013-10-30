@@ -5,6 +5,7 @@
 .navbar .form-inline .btn{margin-top:6px}
 .corporate.navbar.visible-sm .form-inline{width:410px;}
 .corporate.navbar.visible-sm .form-inline label{width:150px}
+ul.nav.navbar-nav li a.lizard{padding-top:10px;padding-bottom:0}
 ul.nav.navbar-nav li a{padding:15px 8px;color:#666}
 ul.nav.navbar-nav li.active a{background-color:#8cc542;color:#fff}
 ul.nav.navbar-nav .dropdown-menu > li > a{padding:3px 20px;}

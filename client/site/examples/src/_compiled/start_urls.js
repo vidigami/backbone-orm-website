@@ -11,7 +11,9 @@
       return _ref;
     }
 
-    Project.prototype.sync = MemorySync(Project);
+    Project.prototype.urlRoot = 'mongodb://localhost:27017/projects';
+
+    Project.prototype.sync = MongoSync(Project);
 
     return Project;
 

@@ -1,34 +1,51 @@
+Thoughts
 
-//
-  callback signature for all methods
-  including Backbone - save, destroy, fetch (m/c)
-  relations / related models
-  also for Mongo!
-  modifiers
-  embed
-  virtual
-  manual_fetch
-  how to require dependent models
-  handles circular dependencies
-  iterator and queries
-  mongo-like syntax - control codes start with $
-  cursor
-  stream
-  each
-  interval
-  note: http queries can be run on the client from the server using stream, each, and interval
-  rest controller
-  url-based query to index
-  syntax
-  render
-  DSL
-  $template from client
-  using middleware for authorization
-  migrations
-  table generation
-  when to use each type
-  client - http (could also run on server)
-  memory - both client and server for embedded relationships
-  server-only - mongo and sql
-  Mongo-specific
-  explain _rev
+inspired by
+couch db url and _rev
+mongo query
+ node callbacks
+backbone differences
+callback signature for all methods
+including Backbone - save, destroy, fetch (m/c)
+async get
+parse dates for you
+relations / related models
+also for Mongo!
+modifiers
+embed
+virtual
+manual_fetch
+how to require dependent models
+handles circular dependencies
+using the cache
+model
+query
+iterator and queries
+mongo-like syntax - control codes start with $
+cursor
+class and instance
+chaining - limit, offset, include
+toJSON vs toModels
+stream
+each
+interval
+note: http queries can be run on the client from the server using stream, each, and interval
+rest controller
+url-based query to index
+syntax
+render
+DSL
+$template from client
+using middleware for authorization
+migrations
+table generation
+when to use each type
+client - http (could also run on server)
+memory - both client and server for embedded relationships
+server-only - mongo and sql
+Mongo-specific
+explain _rev
+sql
+include variant
+http and browser variants
+including in html with variants - brunch, browserify, etc

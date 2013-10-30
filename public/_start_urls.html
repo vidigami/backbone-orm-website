@@ -1,0 +1,34 @@
+
+<div class="row">
+  <div class="col-lg-12 col-md-12"></div>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-md-6"><h3>Persisting models</h3>
+
+<p>Now, in-memory models are all well and good, but that&#39;s not what we&#39;re here for. To persist your models we need to provide
+a bit more information, namely filling in the <code>urlRoot</code> property.</p>
+
+<p>To do so with MongoDB we&#39;ll set our models <code>urlRoot</code> to a connection string specifying our mongodb database and collection.</p>
+
+<p>Since we&#39;re using MongoDB here, we&#39;ll use a Sync that knows how to persist to Mongo: <code>MongoSync</code>.</p>
+
+<ul><li>Give them an urlRoot (or url) that points to the database</li><li>hasOne: A foreign key to this model is placed on the related model</li><li>hasMany: A foreign key to this model is placed on the related model, and the relation will return a set of models when accessed</li><li>manyToMany: A join table is automatically created with foreign keys to each side of the relation.</li></ul>
+  </div>
+  <div class="col-lg-6 col-md-6">
+    <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+    <div class="row example coffeescript">
+      <pre><code class="language-coffeescript">
+class Project extends Backbone.Model
+  urlRoot: 'mongodb://localhost:27017/projects'
+  sync: MongoSync(Project)
+</code></pre>
+    </div>
+    <div class="row example javascript">
+      <pre><code class="language-javascript">Project = Backbone.Model.extend({
+  urlRoot: 'mongodb://localhost:27017/projects'
+});
+Project.prototype.sync = MongoSync(Project);
+</code></pre>
+    </div>
+  </div>
+</div>

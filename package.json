@@ -30,6 +30,8 @@
     "grunt-jade": "*",
     "grunt-contrib-stylus": "*",
     "grunt-contrib-concat": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-cssmin": "*",
     "mocha": "*",
     "powerset": "0.0.x"
   }

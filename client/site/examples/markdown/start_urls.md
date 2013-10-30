@@ -1,9 +1,11 @@
 ### Persisting models
 
 Now, in-memory models are all well and good, but that's not what we're here for. To persist your models we need to provide
-a bit more information, namely filling in the `url` property (or `urlRoot` if you like).
+a bit more information, namely filling in the `urlRoot` property.
 
+To do so with MongoDB we'll set our models `urlRoot` to a connection string specifying our mongodb database and collection.
 
+Since we're using MongoDB here, we'll use a Sync that knows how to persist to Mongo: `MongoSync`.
 
 
 

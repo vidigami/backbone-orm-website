@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>BackboneORM</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="./css/vendor.css">
+  <link rel="stylesheet" href="./css/site.css">
+  <script src="./js/vendor.js"></script>
+  <script src="./js/site.js"></script>
+</head>
+<body>
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><a href="https://www.vidigami.com" class="lizard">
+              <image src="./images/vidigami-lizard.png"></image></a></li>
+        </ul><a href="/" class="navbar-brand">backbone-orm</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="./docs/index.html">Docs</a></li>
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Components<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/">backbone-orm</a></li>
+              <li class="divider"></li>
+              <li><a href="/mongo">backbone-mongo</a></li>
+              <li><a href="/sql">backbone-sql</a></li>
+              <li class="divider"></li>
+              <li><a href="/http">backbone-http</a></li>
+              <li><a href="/rest">backbone-rest</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container main">
+    <div class="jumbotron">
+      <h1>Backbone ORM</h1>
+      <p>A paragraph</p>
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <h2>Install</h2>
+          <pre><code>npm install backbone-orm</code></pre>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <h2>Get the client side JavaScript</h2><a class="btn btn-xl">Download</a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6"><h3>Getting Started</h3>
+
+<p>BackboneORM lets you use basic backbone models. To make them all ORM-y, give them a BackboneORM <code>sync</code> method with
+ their model type.</p>
+
+<p>BackboneORM will patch the provided model through the Sync constructor. Here we&#39;re just using the MemorySync for in-memory
+models, so we don&#39;t need to specify an <code>urlRoot</code>.</p>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row example coffeescript">
+          <pre><code class="language-coffeescript">
+class Project extends Backbone.Model
+  urlRoot: ''
+  sync: MemorySync(Project)
+</code></pre>
+        </div>
+        <div class="row example javascript">
+          <pre><code class="language-javascript">Project = Backbone.Model.extend({
+  urlRoot: ''
+});
+Project.prototype.sync = MemorySync(Project);
+</code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6"><h3>Persisting models</h3>
+
+<p>Now, in-memory models are all well and good, but that&#39;s not what we&#39;re here for. To persist your models we need to provide
+a bit more information, namely filling in the <code>urlRoot</code> property.</p>
+
+<p>To do so with MongoDB we&#39;ll set our models <code>urlRoot</code> to a connection string specifying our mongodb database and collection.</p>
+
+<p>Since we&#39;re using MongoDB here, we&#39;ll use a Sync that knows how to persist to Mongo: <code>MongoSync</code>.</p>
+
+<ul><li>Give them an urlRoot (or url) that points to the database</li><li>hasOne: A foreign key to this model is placed on the related model</li><li>hasMany: A foreign key to this model is placed on the related model, and the relation will return a set of models when accessed</li><li>manyToMany: A join table is automatically created with foreign keys to each side of the relation.</li></ul>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row example coffeescript">
+          <pre><code class="language-coffeescript">
+class Project extends Backbone.Model
+  urlRoot: 'mongodb://localhost:27017/projects'
+  sync: MongoSync(Project)
+</code></pre>
+        </div>
+        <div class="row example javascript">
+          <pre><code class="language-javascript">Project = Backbone.Model.extend({
+  urlRoot: 'mongodb://localhost:27017/projects'
+});
+Project.prototype.sync = MongoSync(Project);
+</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
