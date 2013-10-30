@@ -6,7 +6,7 @@ Queue = require 'backbone-orm/lib/queue'
 Utils = require 'backbone-orm/lib/utils'
 ModelCache = require('backbone-orm/lib/cache/singletons').ModelCache
 QueryCache = require('backbone-orm/lib/cache/singletons').QueryCache
-bbCallback = Utils.bbCallback
+Fabricator = require 'backbone-orm/test/fabricator'
 
 module.exports = (options, callback) ->
   DATABASE_URL = options.database_url or ''
@@ -103,7 +103,7 @@ module.exports = (options, callback) ->
               more_reverses: [MODELS.more_reverse.pop(), MODELS.more_reverse.pop()]
               foreign_reverses: [MODELS.foreign_reverse.pop()]
             })
-            owner.save {}, bbCallback callback
+            owner.save callback
 
         save_queue.await callback
 

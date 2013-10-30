@@ -33,6 +33,14 @@
     "grunt-contrib-uglify": "*",
     "grunt-contrib-cssmin": "*",
     "mocha": "*",
-    "powerset": "0.0.x"
+    "powerset": "0.0.x",
+    "backbone-orm": "*",
+    "backbone-sql": "*",
+    "backbone-mongo": "*",
+    "backbone-http": "*",
+    "backbone-rest": "*",
+    "underscore": "1.5.x",
+    "backbone": "1.1.x",
+    "moment": "2.0.x"
   }
 }
