@@ -1,12 +1,12 @@
 # Node style
-model.save (err, model) ->
+project.save (err, project) ->
   return console.log 'Oh no an error' if err
   console.log "We're saved!"
 
 # Backbone style
-model.save {
-  success: (model) ->
+project.save {
+  success: (project) ->
     console.log "We're saved!"
-  error: (model, err) ->
+  error: (project, err) ->
     console.log 'Oh no an error'
 }

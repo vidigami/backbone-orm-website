@@ -10,5 +10,5 @@ Project.find {is_active: true}, (err, projects) ->
 # Find the items with an id of 1, 2 or 3
 Project.find {id: {$in: [1, 2, 3]}}, (err, projects) ->
 
-# A shortcut for the above when we're working with ids
+# A shortcut for `$in` when we're working with ids
 Project.find {$ids: [1, 2, 3]}, (err, projects) ->

@@ -52,9 +52,7 @@
   Project.findOne({
     name: 'My project'
   }, function(err, project) {
-    return project.get('tasks', function(err, tasks) {
-      return console.log("My task models: ", tasks);
-    });
+    return project.get('tasks', function(err, tasks) {});
   });
 
   Project.findOne({
@@ -62,8 +60,7 @@
     $include: 'tasks'
   }, function(err, project) {
     var tasks;
-    tasks = project.get('tasks');
-    return console.log("My task models: ", tasks);
+    return tasks = project.get('tasks');
   });
 
 }).call(this);

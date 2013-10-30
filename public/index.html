@@ -54,10 +54,7 @@
   </div>
   <div class="container main">
     <div class="row">
-      <div class="col-lg-12 col-md-12"></div>
-    </div>
-    <div class="row">
-      <div class="col-lg-6 col-md-6"><h3>Getting Started</h3>
+      <div class="col-lg-5 col-md-5"><h3>Getting Started</h3>
 
 <p>BackboneORM lets you use basic backbone models. To make them all ORM-y, we override the Backbone <code>sync</code> property
 with a BackboneORM Sync. We pass the Sync our model class.</p>
@@ -65,7 +62,7 @@ with a BackboneORM Sync. We pass the Sync our model class.</p>
 <p>BackboneORM will patch the provided model through the Sync constructor. Here we&#39;re just using the MemorySync for in-memory
 models, so we don&#39;t need to specify an <code>urlRoot</code>. Usually we will, so it&#39;s here for clarity.</p>
       </div>
-      <div class="col-lg-6 col-md-6">
+      <div class="col-lg-7 col-md-7">
         <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
         <div class="row example coffeescript">
           <pre><code class="language-coffeescript">class Project extends Backbone.Model
@@ -83,10 +80,7 @@ Project.prototype.sync = MemorySync(Project);
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-12 col-md-12"></div>
-    </div>
-    <div class="row">
-      <div class="col-lg-6 col-md-6"><h3>Persisting models</h3>
+      <div class="col-lg-5 col-md-5"><h3>Persisting models</h3>
 
 <p>Now, in-memory models are all well and good, but that&#39;s not what we&#39;re here for. To persist our models we need to provide
 a bit more information, namely filling in the <code>urlRoot</code> property.</p>
@@ -95,7 +89,7 @@ a bit more information, namely filling in the <code>urlRoot</code> property.</p>
 
 <p>Since we&#39;re using MongoDB here, we&#39;ll use a Sync that knows how to persist to Mongo: <code>MongoSync</code>.</p>
       </div>
-      <div class="col-lg-6 col-md-6">
+      <div class="col-lg-7 col-md-7">
         <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
         <div class="row example coffeescript">
           <pre><code class="language-coffeescript">class Project extends Backbone.Model
@@ -113,33 +107,32 @@ Project.prototype.sync = MongoSync(Project);
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-12 col-md-12"></div>
-    </div>
-    <div class="row">
-      <div class="col-lg-6 col-md-6"><h3>Callbacks</h3>
+      <div class="col-lg-5 col-md-5"><h3>Callbacks</h3>
 
 <p>Use Node or Backbone style callbacks as you please (even on the client).</p>
+
+<p><code>save</code>, <code>destroy</code> and <code>fetch</code> work just like you expect from plain Backbone.</p>
       </div>
-      <div class="col-lg-6 col-md-6">
+      <div class="col-lg-7 col-md-7">
         <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
         <div class="row example coffeescript">
           <pre><code class="language-coffeescript"># Node style
-model.save (err, model) ->
+project.save (err, project) ->
   return console.log 'Oh no an error' if err
   console.log "We're saved!"
 
 # Backbone style
-model.save {
-  success: (model) ->
+project.save {
+  success: (project) ->
     console.log "We're saved!"
-  error: (model, err) ->
+  error: (project, err) ->
     console.log 'Oh no an error'
 }
 </code></pre>
         </div>
         <div class="row example javascript">
           <pre><code class="language-javascript">// Node style
-model.save(function(err, model) {
+project.save(function(err, project) {
   if (err) {
     return console.log('Oh no an error');
   }
@@ -147,14 +140,139 @@ model.save(function(err, model) {
 });
 
 // Backbone style
-model.save({
-  success: function(model) {
+project.save({
+  success: function(project) {
     return console.log("We're saved!");
   },
-  error: function(model, err) {
+  error: function(project, err) {
     return console.log('Oh no an error');
   }
 });
+</code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5 col-md-5"><h3>Relations</h3>
+
+<p>Backbone-ORM allows you to create relations to use with any backend</p>
+
+<h4>Asynchronous get</h4>
+
+<p>When using <code>get</code> on relations, we&#39;ll retrieve the relation from whichever store we&#39;re using asynchronously.</p>
+
+<h4>Relation types</h4>
+
+<p>Naming conventions are as follows:</p>
+
+<ul><li><code>belongsTo</code>: A foreign key to the related model will be placed on this model</li><li><code>hasOne</code>: A foreign key to this model is placed on the related model</li><li><code>hasMany</code>: A foreign key to this model is placed on the related model, and the relation will return a set of models when accessed</li><li><code>manyToMany</code>: A join table is automatically created with foreign keys to each side of the relation.</li></ul>
+      </div>
+      <div class="col-lg-7 col-md-7">
+        <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row example coffeescript">
+          <pre><code class="language-coffeescript">MongoSync = require('backbone-mongo').Sync
+
+class Project extends Backbone.Model
+  urlRoot: "mongodb://localhost:27017/projects"
+  @schema:
+    tasks: -> ['hasMany', Task]
+  sync: MongoSync(Project)
+
+class Task extends Backbone.Model
+  urlRoot: "mongodb://localhost:27017/tasks"
+  @schema:
+    project: -> ['belongsTo', Project]
+  sync: MongoSync(Task)
+
+# Find a project
+Project.findOne {name: 'My project'}, (err, project) ->
+  # Retrieve its tasks from mongo
+  project.get 'tasks', (err, tasks) ->
+    # do things with tasks
+
+# Find a project and grab its tasks
+Project.findOne {name: 'My project', $include: 'tasks'}, (err, project) ->
+  # Tasks are already loaded, we can just use them
+  tasks = project.get('tasks')
+
+</code></pre>
+        </div>
+        <div class="row example javascript">
+          <pre><code class="language-javascript">
+  var MongoSync = require('backbone-mongo').Sync;
+
+  var Project = Backbone.Model.extend({
+    urlRoot: 'mongodb://localhost:27017/projects'
+  });
+  Project.schema = {
+    tasks: function() {
+      return ['hasMany', Task];
+    }
+  };
+  Project.prototype.sync = MongoSync(Project);
+
+  var Task = Backbone.Model.extend({
+    urlRoot: 'mongodb://localhost:27017/tasks'
+  });
+  Task.schema = {
+    tasks: function() {
+      return ['belongsTo', Project];
+    }
+  };
+  Task.prototype.sync = MongoSync(Task);
+
+  // Find a project
+  Project.findOne({name: 'My project'}, function(err, project) {
+    // Retrieve its tasks from mongo
+    project.get('tasks', function(err, tasks) { /* do things with tasks */ });
+  });
+
+  // Find a project and its tasks with `$include`
+  Project.findOne({name: 'My project', $include: 'tasks'}, function(err, project) {
+    // Tasks are already loaded, we can just use them
+    var tasks = project.get('tasks');
+  });
+</code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5 col-md-5"><h3>Unified query syntax</h3>
+      </div>
+      <div class="col-lg-7 col-md-7">
+        <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row example coffeescript">
+          <pre><code class="language-coffeescript"># Find the Project with id = 123
+Project.findOne {id: 123}, (err, project) ->
+
+# Find the first Project named 'my kickass project'
+Project.findOne {name: 'my kickass project'}, (err, project) ->
+
+# Find all items with is_active = true
+Project.find {is_active: true}, (err, projects) ->
+
+# Find the items with an id of 1, 2 or 3
+Project.find {id: {$in: [1, 2, 3]}}, (err, projects) ->
+
+# A shortcut for `$in` when we're working with ids
+Project.find {$ids: [1, 2, 3]}, (err, projects) ->
+</code></pre>
+        </div>
+        <div class="row example javascript">
+          <pre><code class="language-javascript">// Find the Project with id = 123
+Project.findOne({id: 123}, function(err, project) { /* ... */ });
+
+// Find the first Project named 'my kickass project'
+Project.findOne({name: 'my kickass project'}, function(err, project) { /* ... */ });
+
+// Find all items with is_active = true
+Project.find({is_active: true}, function(err, projects) { /* ... */ });
+
+// Find the items with an id of 1, 2 or 3
+Project.find({id: {$in: [1, 2, 3]}}, function(err, projects) { /* ... */ });
+
+// A shortcut for `$in` when we're working with ids
+Project.find({$ids: [1, 2, 3]}, function(err, projects) { /* ... */ });
 </code></pre>
         </div>
       </div>

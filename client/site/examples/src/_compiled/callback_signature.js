@@ -1,16 +1,16 @@
 (function() {
-  model.save(function(err, model) {
+  project.save(function(err, project) {
     if (err) {
       return console.log('Oh no an error');
     }
     return console.log("We're saved!");
   });
 
-  model.save({
-    success: function(model) {
+  project.save({
+    success: function(project) {
       return console.log("We're saved!");
     },
-    error: function(model, err) {
+    error: function(project, err) {
       return console.log('Oh no an error');
     }
   });

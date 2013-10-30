@@ -18,6 +18,8 @@ ul.nav.navbar-nav .dropdown-menu > li > a:hover{color:#fff;background-color:#8cc
 .container.jumbo .jumbotron .btn-xl:hover{color:#fff;background:#b5671a}
 .language-toggle{margin-top:20px;}
 .language-toggle i{margin-left:5px}
+pre{overflow:auto;}
+pre code{white-space:pre;display:inline-block}
 .btn{background:#8cc542;border-color:#7aba28;color:#fff;}
 .btn:hover{color:#fff;background:#7aba28}
 .btn.btn-lg{height:40px;font-size:18px;line-height:18px;margin-bottom:20px}

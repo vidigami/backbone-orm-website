@@ -16,11 +16,10 @@ class Task extends Backbone.Model
 Project.findOne {name: 'My project'}, (err, project) ->
   # Retrieve its tasks from mongo
   project.get 'tasks', (err, tasks) ->
-    console.log "My task models: ", tasks
+    # do things with tasks
 
 # Find a project and grab its tasks
 Project.findOne {name: 'My project', $include: 'tasks'}, (err, project) ->
   # Tasks are already loaded, we can just use them
   tasks = project.get('tasks')
-  console.log "My task models: ", tasks
 
