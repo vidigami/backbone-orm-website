@@ -15,7 +15,7 @@ module.exports = (grunt) ->
 
     coffee:
       site: {expand: true, cwd: 'client/site/scripts', src: '**/*.coffee', dest: 'public/js', ext: '.js'}
-      examples: {expand: true, cwd: 'client/site/examples/coffee', src: '**/*.coffee', dest: 'client/site/examples/coffee/_compiled', ext: '.js'}
+      examples: {expand: true, cwd: 'client/site/examples/src', src: '**/*.coffee', dest: 'client/site/examples/src/_compiled', ext: '.js'}
 
     jade:
       site_views:

@@ -15,6 +15,8 @@ block body
           h2 Get the client side JavaScript
           a.btn.btn-xl Download
 
+    include _examples/_start
+
     .row
       .col-lg-12.col-md-12
         a.btn.btn-xs.language-toggle.pull-right
@@ -22,13 +24,15 @@ block body
           i.glyphicon.glyphicon-random
     .row
       .col-lg-6.col-md-6
-        include ../examples/markdown/example.md
+        include ../examples/example.md
       .col-lg-6.col-md-6
         div.example.coffeescript
           pre
             code.language-coffeescript
-              include ../examples/coffee/example.coffee.txt
+              include ../examples/example.coffee.txt
         div.example.javascript
           pre
             code.language-javascript
-              include ../examples/js/example.js.txt
+              include ../examples/example.js.txt
+
+

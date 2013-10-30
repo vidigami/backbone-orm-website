@@ -7,7 +7,8 @@
     "url": "https://bitbucket.org/vidigami/corporate.vidigami.com.git"
   },
   "scripts": {
-    "start": "grunt"
+    "start": "grunt",
+    "test": "NODE_ENV=test mocha test/suite.coffee --compilers coffee:coffee-script --reporter spec"
   },
   "engines": {
     "node": "0.10.x",
@@ -29,6 +30,7 @@
     "grunt-jade": "*",
     "grunt-contrib-stylus": "*",
     "grunt-contrib-concat": "*",
-    "grunt-contrib-cssmin": "*"
+    "mocha": "*",
+    "powerset": "0.0.x"
   }
 }

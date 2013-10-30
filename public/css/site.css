@@ -1,5 +1,4 @@
 
-body{font-size:18px}
 .navbar{background:#fff;position:fixed;top:0;right:0;left:0;min-width:500px;z-index:10;-webkit-box-shadow:0 1px 8px rgba(0,0,0,0.5);box-shadow:0 1px 8px rgba(0,0,0,0.5);border:0;}
 .navbar .form-control{height:26px;color:#333}
 .navbar .form-inline{padding:7px 20px 0 0;}
