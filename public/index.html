@@ -39,7 +39,7 @@
   </div>
   <div class="container jumbo">
     <div class="jumbotron">
-      <image src="./images/backbone-orm-logo.png"></image>
+      <image src="./images/backbone-orm-logo-large.png"></image>
       <p>A polystore ORM for Node.js and the browser</p>
       <div class="row">
         <div class="col-lg-6 col-md-6">
@@ -67,7 +67,7 @@ models, so we don&#39;t need to specify an <code>urlRoot</code>. Usually we will
         <div class="row example coffeescript">
           <pre><code class="language-coffeescript">class Project extends Backbone.Model
   urlRoot: ''
-  sync: MemorySync(Project)
+  sync: require('backbone-orm').sync(Project)
 </code></pre>
         </div>
         <div class="row example javascript">
@@ -203,22 +203,18 @@ Project.findOne {name: 'My project', $include: 'tasks'}, (err, project) ->
 
   var Project = Backbone.Model.extend({
     urlRoot: 'mongodb://localhost:27017/projects'
-  });
-  Project.schema = {
-    tasks: function() {
-      return ['hasMany', Task];
+    schema: {
+      tasks: function() { return ['hasMany', Task]; }
     }
-  };
+  });
   Project.prototype.sync = MongoSync(Project);
 
   var Task = Backbone.Model.extend({
     urlRoot: 'mongodb://localhost:27017/tasks'
-  });
-  Task.schema = {
-    tasks: function() {
-      return ['belongsTo', Project];
+    schema: {
+      tasks: function() { return ['belongsTo', Project]; }
     }
-  };
+  });
   Task.prototype.sync = MongoSync(Task);
 
   // Find a project

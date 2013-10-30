@@ -3,22 +3,18 @@
 
   var Project = Backbone.Model.extend({
     urlRoot: 'mongodb://localhost:27017/projects'
-  });
-  Project.schema = {
-    tasks: function() {
-      return ['hasMany', Task];
+    schema: {
+      tasks: function() { return ['hasMany', Task]; }
     }
-  };
+  });
   Project.prototype.sync = MongoSync(Project);
 
   var Task = Backbone.Model.extend({
     urlRoot: 'mongodb://localhost:27017/tasks'
-  });
-  Task.schema = {
-    tasks: function() {
-      return ['belongsTo', Project];
+    schema: {
+      tasks: function() { return ['belongsTo', Project]; }
     }
-  };
+  });
   Task.prototype.sync = MongoSync(Task);
 
   // Find a project

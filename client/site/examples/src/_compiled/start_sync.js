@@ -13,7 +13,7 @@
 
     Project.prototype.urlRoot = '';
 
-    Project.prototype.sync = MemorySync(Project);
+    Project.prototype.sync = require('backbone-orm').sync(Project);
 
     return Project;
 
