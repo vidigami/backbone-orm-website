@@ -1,21 +1,17 @@
 
-.navbar{background:#fff;position:fixed;top:0;right:0;left:0;min-width:500px;z-index:10;-webkit-box-shadow:0 1px 8px rgba(0,0,0,0.5);box-shadow:0 1px 8px rgba(0,0,0,0.5);border:0;}
-.navbar .form-control{height:26px;color:#333}
-.navbar .form-inline{padding:7px 20px 0 0;}
-.navbar .form-inline .btn{margin-top:6px}
-.corporate.navbar.visible-sm .form-inline{width:410px;}
-.corporate.navbar.visible-sm .form-inline label{width:150px}
-ul.nav.navbar-nav li a.lizard{padding-top:10px;padding-bottom:0}
+.navbar{background:#fff;position:fixed;top:0;right:0;left:0;z-index:10;-webkit-box-shadow:0 1px 8px rgba(0,0,0,0.5);box-shadow:0 1px 8px rgba(0,0,0,0.5);border:0;}
+.navbar .lizard{padding:7px 10px 0}
 ul.nav.navbar-nav li a{padding:15px 8px;color:#666}
 ul.nav.navbar-nav li.active a{background-color:#8cc542;color:#fff}
 ul.nav.navbar-nav .dropdown-menu > li > a{padding:3px 20px;}
 ul.nav.navbar-nav .dropdown-menu > li > a:hover{color:#fff;background-color:#8cc542;background-image:none}
 .container.main{padding-bottom:350px}
 .row{width:100%;padding:0;margin:0}
-.container.jumbo{padding:0;margin-top:50px;max-width:100%;}
-.container.jumbo .jumbotron{-webkit-border-radius:0;border-radius:0;text-align:center;color:#fff;background:#8cc542;}
-.container.jumbo .jumbotron .btn-xl{color:#fff;background:#f69220;}
-.container.jumbo .jumbotron .btn-xl:hover{color:#fff;background:#b5671a}
+.jumbo{margin-top:50px;color:#fff;background:#8cc542;}
+.jumbo .container .jumbotron{-webkit-border-radius:0;border-radius:0;text-align:center;background:#8cc542;}
+.jumbo .container .jumbotron .subtitle{margin-top:20px}
+.jumbo .container .jumbotron .btn{color:#fff;background:#f69220;}
+.jumbo .container .jumbotron .btn:hover{color:#fff;background:#b5671a}
 .language-toggle{margin-top:20px;}
 .language-toggle i{margin-left:5px}
 pre{overflow:auto;}

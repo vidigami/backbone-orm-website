@@ -1,0 +1,38 @@
+
+.navbar.navbar-default.navbar-fixed-top
+  .container
+
+    .navbar-header
+      a.pull-left.lizard(href='https://www.vidigami.com')
+        img(src='./images/vidigami-lizard.png')
+      a.navbar-brand(href='/') backbone-orm
+
+      button(type="button", class="navbar-toggle", data-toggle="collapse", data-target="#navbar-collapse")
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+
+    .navbar-collapse.collapse#navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li.active
+          a(href='/') Home
+        li
+          a(href='./docs/index.html') Docs
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown')
+            | Components
+            b.caret
+          ul.dropdown-menu
+            li
+              a(href='/') backbone-orm
+            li.divider
+            li
+              a(href='/mongo') backbone-mongo
+            li
+              a(href='/sql') backbone-sql
+            li.divider
+            li
+              a(href='/http') backbone-http
+            li
+              a(href='/rest') backbone-rest
