@@ -189,13 +189,13 @@ If it is already loaded it will also be returned directly.</p>
           <pre><code class="language-coffeescript">MongoSync = require('backbone-mongo').sync
 
 class Project extends Backbone.Model
-  urlRoot: "mongodb://localhost:27017/projects"
+  urlRoot: 'mongodb://localhost:27017/projects'
   schema:
     tasks: -> ['hasMany', Task]
   sync: MongoSync(Project)
 
 class Task extends Backbone.Model
-  urlRoot: "mongodb://localhost:27017/tasks"
+  urlRoot: 'mongodb://localhost:27017/tasks'
   schema:
     project: -> ['belongsTo', Project]
   sync: MongoSync(Task)
@@ -266,7 +266,7 @@ a model should only be saved as embedded json in a parent model pass <code>embed
 
 # manual_fetch: Tasks will not be loaded when accessing a projects tasks property
 class Project extends Backbone.Model
-  urlRoot: "mongodb://localhost:27017/projects"
+  urlRoot: 'mongodb://localhost:27017/projects'
   schema:
     tasks: -> ['hasMany', Task, manual_fetch: true]
   sync: MongoSync(Project)
@@ -274,14 +274,14 @@ class Project extends Backbone.Model
 # virtual: Tasks will not have their foreign keys updated automatically if a project is deleted
 #          or it has its tasks changed while some are not loaded to memory
 class Project extends Backbone.Model
-  urlRoot: "mongodb://localhost:27017/projects"
+  urlRoot: 'mongodb://localhost:27017/projects'
   schema:
     tasks: -> ['hasMany', Task, virtual: true]
   sync: MongoSync(Project)
 
 # embed: Tasks will be saved as an embedded document in each project
 class Project extends Backbone.Model
-  urlRoot: "mongodb://localhost:27017/projects"
+  urlRoot: 'mongodb://localhost:27017/projects'
   schema:
     tasks: -> ['hasMany', Task, embed: true]
   sync: MongoSync(Project)
