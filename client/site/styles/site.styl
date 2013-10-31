@@ -11,27 +11,11 @@
   top: 0
   right: 0
   left: 0
-  min-width: 500px
   z-index: 10
   box-shadow: 0 1px 8px rgba(0,0,0,0.5)
   border: 0
-  .form-control
-    height: 26px
-    color: text_darkest
-  .form-inline
-    padding: 7px 20px 0 0
-    .btn
-      margin-top: 6px
-
-.corporate.navbar.visible-sm
-  .form-inline
-    width: 410px
-    label
-      width: 150px
-
-ul.nav.navbar-nav li a.lizard
-  padding-top: 10px
-  padding-bottom: 0px
+  .lizard
+    padding: 7px 10px 0
 
 ul.nav.navbar-nav
   li
@@ -62,22 +46,23 @@ ul.nav.navbar-nav
   margin: 0
 
 // Jumbo //
-.container.jumbo
-  padding: 0
+.jumbo
   margin-top: 50px
-  max-width: 100%
-
-  .jumbotron
-    border-radius: 0
-    text-align: center
-    color: text_lightest
-    background: vidi_green
-    .btn-xl
-      color: text_lightest
-      background: vidi_orange
-      &:hover
+  color: text_lightest
+  background: vidi_green
+  .container
+    .jumbotron
+      border-radius: 0
+      text-align: center
+      background: vidi_green
+      .subtitle
+        margin-top: 20px
+      .btn
         color: text_lightest
-        background: vidi_darkorange
+        background: vidi_orange
+        &:hover
+          color: text_lightest
+          background: vidi_darkorange
 
 
 

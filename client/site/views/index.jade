@@ -1,25 +1,13 @@
 extends _base
 
 block body
-
-  .container.jumbo
-    .jumbotron
-      image(src='./images/backbone-orm-logo-large.png')
-      p A polystore ORM for Node.js and the browser
-      .row
-        .col-lg-6.col-md-6
-          h2 Install
-          pre
-            code
-              | npm install backbone-orm
-        .col-lg-6.col-md-6
-          h2 Get the client side JavaScript
-          a.btn.btn-xl Download
+  include _includes/_header
 
   .container.main
     include _examples/_start_sync
     include _examples/_start_urls
     include _examples/_callback_signature
     include _examples/_relations
+    include _examples/_relation_options
     include _examples/_query_find
     include _examples/_rest

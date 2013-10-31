@@ -1,34 +1,17 @@
-
-.navbar.navbar-default.navbar-fixed-top
+.jumbo
   .container
-
-    .navbar-header
-      ul.nav.navbar-nav
-        li
-          a.lizard(href='https://www.vidigami.com')
-            image(src='./images/vidigami-lizard.png')
-      a.navbar-brand(href='/') backbone-orm
-
-    .navbar-collapse.collapse
-      ul.nav.navbar-nav.navbar-right
-        li.active
-          a(href='/') Home
-        li
-          a(href='./docs/index.html') Docs
-        li.dropdown
-          a.dropdown-toggle(href='#', data-toggle='dropdown')
-            | Components
-            b.caret
-          ul.dropdown-menu
-            li
-              a(href='/') backbone-orm
-            li.divider
-            li
-              a(href='/mongo') backbone-mongo
-            li
-              a(href='/sql') backbone-sql
-            li.divider
-            li
-              a(href='/http') backbone-http
-            li
-              a(href='/rest') backbone-rest
+    .jumbotron
+      p.hidden-sm.hidden-xs
+        img(src='/images/backbone-orm-logo-large.png')
+      p.hidden-lg.hidden-md
+        img(src='/images/backbone_orm-logo-small.png')
+      p.subtitle A polystore ORM for Node.js and the browser
+      .row
+        .col-lg-6.col-md-6
+          h2 Install
+          pre
+            code
+              | npm install backbone-orm
+        .col-lg-6.col-md-6
+          h2 Get the client JavaScript
+          a.btn.btn-lg Download

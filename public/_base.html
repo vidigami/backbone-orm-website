@@ -4,6 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>BackboneORM</title>
   <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/png" href="/images/vidigami-lizard.png">
   <link rel="stylesheet" href="./css/vendor.css">
   <link rel="stylesheet" href="./css/site.css">
   <script src="./js/vendor.js"></script>
@@ -12,13 +13,10 @@
 <body>
   <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-      <div class="navbar-header">
-        <ul class="nav navbar-nav">
-          <li><a href="https://www.vidigami.com" class="lizard">
-              <image src="./images/vidigami-lizard.png"></image></a></li>
-        </ul><a href="/" class="navbar-brand">backbone-orm</a>
+      <div class="navbar-header"><a href="https://www.vidigami.com" class="pull-left lizard"><img src="./images/vidigami-lizard.png"></a><a href="/" class="navbar-brand">backbone-orm</a>
+        <button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
       </div>
-      <div class="navbar-collapse collapse">
+      <div id="navbar-collapse" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="/">Home</a></li>
           <li><a href="./docs/index.html">Docs</a></li>

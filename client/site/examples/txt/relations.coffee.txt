@@ -12,14 +12,13 @@ class Task extends Backbone.Model
     project: -> ['belongsTo', Project]
   sync: MongoSync(Task)
 
-# Find a project
+# Asynchronous relation loading
 Project.findOne {name: 'My project'}, (err, project) ->
   # Retrieve its tasks from mongo
   project.get 'tasks', (err, tasks) ->
-    # do things with tasks
+    # Do things with tasks
 
-# Find a project and grab its tasks
+# Find a project and its tasks with `$include`
 Project.findOne {name: 'My project', $include: 'tasks'}, (err, project) ->
   # Tasks are already loaded, we can just use them
   tasks = project.get('tasks')
-
