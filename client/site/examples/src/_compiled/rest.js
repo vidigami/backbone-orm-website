@@ -13,13 +13,7 @@
 
     Task.prototype.url = '/tasks';
 
-    Task.schema = {
-      project: function() {
-        return ['belongsTo', Project];
-      }
-    };
-
-    Task.prototype.sync = require('backbone-orm').sync(Task);
+    Task.prototype.sync = require('backbone-sql').sync(Task);
 
     return Task;
 

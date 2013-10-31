@@ -1,14 +1,14 @@
-MongoSync = require('backbone-mongo').Sync
+MongoSync = require('backbone-mongo').sync
 
 class Project extends Backbone.Model
   urlRoot: "mongodb://localhost:27017/projects"
-  @schema:
+  schema:
     tasks: -> ['hasMany', Task]
   sync: MongoSync(Project)
 
 class Task extends Backbone.Model
   urlRoot: "mongodb://localhost:27017/tasks"
-  @schema:
+  schema:
     project: -> ['belongsTo', Project]
   sync: MongoSync(Task)
 

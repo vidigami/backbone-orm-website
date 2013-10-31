@@ -1,7 +1,5 @@
 class Task extends Backbone.Model
   url: '/tasks'
-  @schema:
-    project: -> ['belongsTo', Project]
-  sync: require('backbone-orm').sync(Task)
+  sync: require('backbone-sql').sync(Task)
 
 new RestController(app, {model_type: Task, route: '/tasks'})

@@ -1,3 +1,6 @@
+# in the browser: MemorySync = Backbone.ORM.sync
+MemorySync = require('backbone-orm').sync
+
 class Project extends Backbone.Model
-  urlRoot: ''
-  sync: require('backbone-orm').sync(Project)
+  urlRoot: '/projects'
+  sync: MemorySync(Project)

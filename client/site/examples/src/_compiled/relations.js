@@ -3,7 +3,7 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  MongoSync = require('backbone-mongo').Sync;
+  MongoSync = require('backbone-mongo').sync;
 
   Project = (function(_super) {
     __extends(Project, _super);
@@ -15,7 +15,7 @@
 
     Project.prototype.urlRoot = "mongodb://localhost:27017/projects";
 
-    Project.schema = {
+    Project.prototype.schema = {
       tasks: function() {
         return ['hasMany', Task];
       }
@@ -37,7 +37,7 @@
 
     Task.prototype.urlRoot = "mongodb://localhost:27017/tasks";
 
-    Task.schema = {
+    Task.prototype.schema = {
       project: function() {
         return ['belongsTo', Project];
       }
