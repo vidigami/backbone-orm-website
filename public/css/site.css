@@ -6,7 +6,8 @@ ul.nav.navbar-nav li.active a{background-color:#8cc542;color:#fff}
 ul.nav.navbar-nav .dropdown-menu > li > a{padding:3px 20px;}
 ul.nav.navbar-nav .dropdown-menu > li > a:hover{color:#fff;background-color:#8cc542;background-image:none}
 .container.main{padding-bottom:350px}
-.row{width:100%;padding:0;margin:0}
+.row{width:100%;padding:0;margin:0;}
+.row.block{margin-top:20px}
 .jumbo{margin-top:50px;color:#fff;background:#8cc542;}
 .jumbo .container .jumbotron{-webkit-border-radius:0;border-radius:0;text-align:center;background:#8cc542;}
 .jumbo .container .jumbotron .subtitle{margin-top:20px}

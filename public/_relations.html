@@ -1,5 +1,5 @@
 
-<div class="row">
+<div class="row block">
   <div class="col-lg-5 col-md-5"><h3>Relations</h3>
 
 <p>Backbone-ORM allows you to create relations to use with any backend</p>
@@ -16,8 +16,8 @@
 If it is already loaded it will also be returned directly.</p>
   </div>
   <div class="col-lg-7 col-md-7">
-    <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
-    <div class="row example coffeescript">
+    <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+    <div class="row block example coffeescript">
       <pre><code class="language-coffeescript">MongoSync = require('backbone-mongo').sync
 
 class Project extends Backbone.Model
@@ -44,7 +44,7 @@ Project.findOne {name: 'My project', $include: 'tasks'}, (err, project) ->
   tasks = project.get('tasks')
 </code></pre>
     </div>
-    <div class="row example javascript">
+    <div class="row block example javascript">
       <pre><code class="language-javascript">var MongoSync = require('backbone-mongo').sync;
 
 var Project = Backbone.Model.extend({
