@@ -86,7 +86,7 @@ pre[class*="language-"] {
 }
 
 .token.selector,
-.token.attr-name,
+/*.token.attr-name,*/
 .token.string,
 .token.builtin {
   color: #690;
