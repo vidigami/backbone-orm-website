@@ -1,16 +1,16 @@
-.row
+.row.block
   .col-lg-5.col-md-5
     include ./markdown/iteration.md
   .col-lg-7.col-md-7
-    div.row
+    .row
       a.btn.btn-xs.language-toggle.pull-right
         span CoffeeScript
         i.glyphicon.glyphicon-random
-    div.row.example.coffeescript
+    .row.example.coffeescript
       pre
         code.language-coffeescript
           include ./txt/iteration.coffee.txt
-    div.row.example.javascript
+    .row.example.javascript
       pre
         code.language-javascript
           include ./txt/iteration.js.txt

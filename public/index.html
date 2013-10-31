@@ -41,7 +41,7 @@
         <p class="hidden-sm hidden-xs"><img src="./images/backbone-orm-logo-large.png"></p>
         <p class="hidden-lg hidden-md"><img src="./images/backbone_orm-logo-small.png"></p>
         <p class="subtitle">A polystore ORM for Node.js and the browser</p>
-        <div class="row">
+        <div class="row block">
           <div class="col-lg-6 col-md-6">
             <h2>Install</h2>
             <pre><code>npm install backbone-orm</code></pre>
@@ -54,8 +54,10 @@
     </div>
   </div>
   <div class="container main">
-    <div class="row">
-      <h3>Introduction</h3>
+    <div class="row block">
+      <div class="col-lg-12 col-md-12">
+        <h3>Introduction</h3>
+      </div>
       <div class="col-lg-6 col-md-6"><p>BackboneORM and all of its variants were designed to provide a consistent and flexible across Node.js and the browser.</p>
 
 <p>It was inspired by other great software and provides:</p>
@@ -67,7 +69,7 @@
 <ul><li>it provides a JSON-rendering DSL</li><li>it solves the dreaded Node.js circular dependencies problem for related models</li><li>it is compatible with <a href="http://kmalakoff.github.io/knockback/">Knockback.js</a></li><li>it parses IS6801 dates automatically</li><li>BackboneMongo provides a CouchDB-like &#39;_rev&#39; versioning solution</li><li>BackboneREST provides authorization middleware hooks and emits REST events</li></ul>
       </div>
     </div>
-    <div class="row">
+    <div class="row block">
       <div class="col-lg-5 col-md-5"><h3>Getting Started</h3>
 
 <p>BackboneORM lets you use basic backbone models. To make them all ORM-y, we override the Backbone <code>sync</code> property
@@ -93,7 +95,7 @@ Project.prototype.sync = require('backbone-orm').sync(Project);
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row block">
       <div class="col-lg-5 col-md-5"><h3>Persisting models</h3>
 
 <p>Now, in-memory models are all well and good, but that&#39;s not what we&#39;re here for. To persist our models we need to provide
@@ -119,7 +121,7 @@ Project.prototype.sync = require('backbone-mongo').sync(Project);</code></pre>
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row block">
       <div class="col-lg-5 col-md-5"><h3>Callbacks</h3>
 
 <p>Use Node or Backbone style callbacks as you please (even on the client).</p>
@@ -165,7 +167,7 @@ project.save({
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row block">
       <div class="col-lg-5 col-md-5"><h3>Relations</h3>
 
 <p>Backbone-ORM allows you to create relations to use with any backend</p>
@@ -244,7 +246,7 @@ Project.findOne({name: 'My project', $include: 'tasks'}, function(err, project) 
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row block">
       <div class="col-lg-5 col-md-5"><h3>Relation options</h3>
 
 <p>Sometimes we&#39;ll want to treat certain relations differently, the following options are available:</p>
@@ -317,8 +319,8 @@ var Project = Backbone.Model.extend({
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-5 col-md-5"><h3>Unified query syntax</h3>
+    <div class="row block">
+      <div class="col-lg-5 col-md-5"><h3>MongoDB, SQL, and HTTP</h3>
 
 <p>Irregardless of the BackboneORM variant and whether you are in the browser or on the server, you can query your models using an identical syntax.</p>
       </div>
@@ -372,7 +374,7 @@ Project.find({$values: ['created_at', 'status']}, function(err, array_of_arrays)
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row block">
       <div class="col-lg-5 col-md-5"><h3>Iteration</h3>
 
 <p>Using <code>each</code>, <code>stream</code>, and <code>interval</code>, you can iterate over your models in a way that suits the problem you are trying to solve.</p>
@@ -428,7 +430,7 @@ Task.interval({$interval: {key: 'created_at', type: 'days', length: 1}},
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row block">
       <div class="col-lg-5 col-md-5"><h3>BackboneHTTP and BackboneRest</h3>
 
 <p>BackboneHTTP provides an interface for consuming JSON APIs through HTTP. BackboneRest provides a RESTful controller for JSON APIs from Node.js. Together, they rock!</p>
@@ -481,7 +483,7 @@ new RestController(app, {model_type: Task, route: '/tasks'});
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row block">
       <div class="col-lg-5 col-md-5"><h3>JSON Rendering DSL</h3>
 
 <p>BackboneORM provides an asynchronous JSON rendering DSL that is consistent with the unified query language.</p>

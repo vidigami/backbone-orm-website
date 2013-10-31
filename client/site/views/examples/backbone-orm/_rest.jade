@@ -1,28 +1,28 @@
-.row
+.row.block
   .col-lg-5.col-md-5
     include ./markdown/rest.md
   .col-lg-7.col-md-7
-    div.row
+    .row
       a.btn.btn-xs.language-toggle.pull-right
         span CoffeeScript
         i.glyphicon.glyphicon-random
 
     span In the browser:
-    div.row.example.coffeescript
+    .row.example.coffeescript
       pre
         code.language-coffeescript
           include ./txt/rest_browser.coffee.txt
-    div.row.example.javascript
+    .row.example.javascript
       pre
         code.language-javascript
           include ./txt/rest_browser.js.txt
 
     span On the server:
-    div.row.example.coffeescript
+    .row.example.coffeescript
       pre
         code.language-coffeescript
           include ./txt/rest_server.coffee.txt
-    div.row.example.javascript
+    .row.example.javascript
       pre
         code.language-javascript
           include ./txt/rest_server.js.txt
