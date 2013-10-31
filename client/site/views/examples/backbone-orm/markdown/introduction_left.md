@@ -1,4 +1,4 @@
-BackboneORM and all of its variants were designed to provide a consistent and flexible across Node.js and the browser.
+BackboneORM and all of its variants were designed to provide a consistent and flexible interface across Node.js and the browser.
 
 It was inspired by other great software and provides:
 
