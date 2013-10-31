@@ -1,7 +1,26 @@
 .row
   .col-lg-5.col-md-5
-    include ./markdown/global.md
+    h3 Script Loading
+.row
+  .col-lg-5.col-md-5
+    include ./markdown/require_global.md
   .col-lg-7.col-md-7
-    div.row.example
-      pre
-        code.language-coffeescript
+    pre
+      code.language-html
+        include ./txt/require_global.html.txt
+
+.row
+  .col-lg-5.col-md-5
+    include ./markdown/require_amd.md
+  .col-lg-7.col-md-7
+    pre
+      code.language-html
+        include ./txt/require_amd.html.txt
+
+.row
+  .col-lg-5.col-md-5
+    include ./markdown/require_browserify.md
+  .col-lg-7.col-md-7
+    pre
+      code.language-html
+        include ./txt/require_browserify.html.txt
