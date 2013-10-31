@@ -1,5 +1,3 @@
 class Task extends Backbone.Model
-  url: '/tasks'
+  urlRoot: '/tasks'
   sync: require('backbone-http').sync(Task)
-
-new RestController(app, {model_type: Task, route: '/tasks'})

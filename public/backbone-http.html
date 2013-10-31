@@ -73,7 +73,7 @@ Project.find {is_active: true}, (err, projects) ->
 
 # Iterate through all items with is_active = true in batches of 200
 Project.each {is_active: true, $each: {fetch: 200}},
-  ((project, callback) -> ),
+  ((project, callback) -> console.log "project: #{project.get('name')}"; callback()),
   (err) -> console.log 'Done'
 
 # Stream all items with is_active = true in batches of 200
@@ -93,7 +93,7 @@ Project.find({is_active: true}, function(err, projects) {});
 
 // Iterate through all items with is_active = true in batches of 200
 Project.each({is_active: true, $each: {fetch: 200}},
-  function(project, callback) {},
+  function(project, callback) {console.log('project: ' + project.get('name')); callback()},
   function(err) {return console.log('Done');}
 );
 
