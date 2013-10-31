@@ -4,15 +4,16 @@
 
 <p>Backbone-ORM allows you to create relations to use with any backend</p>
 
-<h4>Asynchronous get</h4>
-
-<p>When using <code>get</code> on relations, we&#39;ll retrieve the relation from whichever store we&#39;re using asynchronously.</p>
-
 <h4>Relation types</h4>
 
 <p>Naming conventions are as follows:</p>
 
 <ul><li><code>belongsTo</code>: A foreign key to the related model will be placed on this model</li><li><code>hasOne</code>: A foreign key to this model is placed on the related model</li><li><code>hasMany</code>: A foreign key to this model is placed on the related model, and the relation will return a set of models when accessed</li><li><code>manyToMany</code>: A join table is automatically created with foreign keys to each side of the relation.</li></ul>
+
+<h4>Asynchronous get</h4>
+
+<p>When using <code>get</code> on relations, if the relation has not been loaded it will be returned asynchronously via a callback.
+If it is already loaded it will also be returned directly.</p>
   </div>
   <div class="col-lg-7 col-md-7">
     <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
@@ -31,50 +32,49 @@ class Task extends Backbone.Model
     project: -> ['belongsTo', Project]
   sync: MongoSync(Task)
 
-# Find a project
+# Asynchronous relation loading
 Project.findOne {name: 'My project'}, (err, project) ->
   # Retrieve its tasks from mongo
   project.get 'tasks', (err, tasks) ->
-    # do things with tasks
+    # Do things with tasks
 
-# Find a project and grab its tasks
+# Find a project and its tasks with `$include`
 Project.findOne {name: 'My project', $include: 'tasks'}, (err, project) ->
   # Tasks are already loaded, we can just use them
   tasks = project.get('tasks')
-
 </code></pre>
     </div>
     <div class="row example javascript">
       <pre><code class="language-javascript">
-  var MongoSync = require('backbone-mongo').Sync;
+var MongoSync = require('backbone-mongo').Sync;
 
-  var Project = Backbone.Model.extend({
-    urlRoot: 'mongodb://localhost:27017/projects'
-    schema: {
-      tasks: function() { return ['hasMany', Task]; }
-    }
-  });
-  Project.prototype.sync = MongoSync(Project);
+var Project = Backbone.Model.extend({
+  urlRoot: 'mongodb://localhost:27017/projects',
+  schema: {
+    tasks: function() { return ['hasMany', Task]; }
+  }
+});
+Project.prototype.sync = MongoSync(Project);
 
-  var Task = Backbone.Model.extend({
-    urlRoot: 'mongodb://localhost:27017/tasks'
-    schema: {
-      tasks: function() { return ['belongsTo', Project]; }
-    }
-  });
-  Task.prototype.sync = MongoSync(Task);
+var Task = Backbone.Model.extend({
+  urlRoot: 'mongodb://localhost:27017/tasks',
+  schema: {
+    tasks: function() { return ['belongsTo', Project]; }
+  }
+});
+Task.prototype.sync = MongoSync(Task);
 
-  // Find a project
-  Project.findOne({name: 'My project'}, function(err, project) {
-    // Retrieve its tasks from mongo
-    project.get('tasks', function(err, tasks) { /* do things with tasks */ });
-  });
+// Asynchronous relation loading
+Project.findOne({name: 'My project'}, function(err, project) {
+  // Retrieve its tasks from mongo
+  project.get('tasks', function(err, tasks) { /* Do things with tasks */ });
+});
 
-  // Find a project and its tasks with `$include`
-  Project.findOne({name: 'My project', $include: 'tasks'}, function(err, project) {
-    // Tasks are already loaded, we can just use them
-    var tasks = project.get('tasks');
-  });
+// Find a project and its tasks with `$include`
+Project.findOne({name: 'My project', $include: 'tasks'}, function(err, project) {
+  // Tasks are already loaded, we can just use them
+  var tasks = project.get('tasks');
+});
 </code></pre>
     </div>
   </div>
