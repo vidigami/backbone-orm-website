@@ -24,8 +24,8 @@ The first letter of the type name is optionally capitalized, while the remainder
 <ul><li><code>nullable</code>: Defaults to <code>true</code>. Set to false to throw an error on null values.</li><li><code>indexed</code>: Defaults to <code>false</code>. Set to true to create an index on the column.</li><li><code>unique</code>: Defaults to <code>false</code>. Set to true to create a unique constraint on the column.</li></ul>
   </div>
   <div class="col-lg-7 col-md-7">
-    <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
-    <div class="row block example coffeescript">
+    <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+    <div class="row example coffeescript">
       <pre><code class="language-coffeescript">SQLSync = require('backbone-sql').sync
 
 class Project extends Backbone.Model
@@ -43,7 +43,7 @@ class Project extends Backbone.Model
   sync: SQLSync(Project)
 </code></pre>
     </div>
-    <div class="row block example javascript">
+    <div class="row example javascript">
       <pre><code class="language-javascript">var SQLSync = require('backbone-sql').sync;
 
 var Project = Backbon.Model.extend({
