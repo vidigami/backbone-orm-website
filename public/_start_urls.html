@@ -14,15 +14,14 @@ a bit more information, namely filling in the <code>urlRoot</code> property.</p>
     <div class="row example coffeescript">
       <pre><code class="language-coffeescript">class Project extends Backbone.Model
   urlRoot: 'mongodb://localhost:27017/projects'
-  sync: MongoSync(Project)
+  sync: require('backbone-mongo').sync(Project)
 </code></pre>
     </div>
     <div class="row example javascript">
       <pre><code class="language-javascript">var Project = Backbone.Model.extend({
   urlRoot: 'mongodb://localhost:27017/projects'
 });
-Project.prototype.sync = MongoSync(Project);
-</code></pre>
+Project.prototype.sync = require('backbone-mongo').sync(Project);</code></pre>
     </div>
   </div>
 </div>

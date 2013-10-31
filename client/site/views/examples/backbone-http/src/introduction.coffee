@@ -1,3 +1,7 @@
+class Project extends Backbone.Model
+  urlRoot: '/projects'
+  sync: require('backbone-http').sync(Project)
+
 # Find all items with is_active = true
 Project.find {is_active: true}, (err, projects) ->
 

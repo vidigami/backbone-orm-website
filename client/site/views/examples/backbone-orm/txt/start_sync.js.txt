@@ -1,7 +1,4 @@
-// in the browser: var MemorySync = Backbone.ORM.sync;
-var MemorySync = require('backbone-orm').sync;
-
 var Project = Backbone.Model.extend({
-  urlRoot: ''
+  urlRoot: '/projects'
 });
-Project.prototype.sync = MemorySync(Project);
+Project.prototype.sync = require('backbone-orm').sync(Project);

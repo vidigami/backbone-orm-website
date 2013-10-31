@@ -1,3 +1,8 @@
+var Project = Backbone.Model.extend({
+  urlRoot: '/projects'
+});
+Project.prototype.sync = require('backbone-http').sync(Project);
+
 // Find all items with is_active = true
 Project.find({is_active: true}, function(err, projects) {});
 

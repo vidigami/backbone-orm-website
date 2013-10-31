@@ -64,7 +64,11 @@
       <div class="col-lg-7 col-md-7">
         <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
         <div class="row example coffeescript">
-          <pre><code class="language-coffeescript"># Find all items with is_active = true
+          <pre><code class="language-coffeescript">class Project extends Backbone.Model
+  urlRoot: '/projects'
+  sync: require('backbone-http').sync(Project)
+
+# Find all items with is_active = true
 Project.find {is_active: true}, (err, projects) ->
 
 # Iterate through all items with is_active = true in batches of 200
@@ -79,7 +83,12 @@ Project.stream({is_active: true, $each: {fetch: 200}})
 </code></pre>
         </div>
         <div class="row example javascript">
-          <pre><code class="language-javascript">// Find all items with is_active = true
+          <pre><code class="language-javascript">var Project = Backbone.Model.extend({
+  urlRoot: '/projects'
+});
+Project.prototype.sync = require('backbone-http').sync(Project);
+
+// Find all items with is_active = true
 Project.find({is_active: true}, function(err, projects) {});
 
 // Iterate through all items with is_active = true in batches of 200
@@ -100,6 +109,8 @@ Project.stream({is_active: true, $each: {fetch: 200}})
       <div class="col-lg-5 col-md-5"><h3>Getting Started</h3>
 
 <p>When loading BackboneHTTP in the browser, you can use global script tags, AMD, or a broswerified bundle. Also, you should set up a <a href="./backbone-rest.html">BackboneREST</a> controller in you Node.js server to provide a JSON API for BackboneHTTP to consume.</p>
+
+<p><strong>Note:</strong> depending on the way BackboneORM is loaded, you may need to access it differently. See below examples for details.</p>
       </div>
     </div>
     <div class="row">
