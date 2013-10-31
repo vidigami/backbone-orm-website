@@ -150,6 +150,25 @@ browserify -r backbone-http &gt; backbone-http-bundle.js
         <pre><code class="language-html">  &lt;script type=&quot;text/javascript&quot; src=&quot;backbone-http-bundle.js&quot;&gt;&lt;/script&gt;<br/><br/>  &lt;script type=&quot;text/javascript&quot;&gt;<br/>    var bbhttp = require('backbone-http');<br/>    var Backbone = bbhttp.modules.backbone;<br/><br/>    var Test = Backbone.Model.extend({<br/>      urlRoot: '/api/tests',<br/>      model_name: 'Test'<br/>    });<br/>    Test.prototype.sync = bbhttp.sync(Test);<br/><br/>    var test = new Test({name: 'Bob'});<br/>    test.save(function(err){<br/>      Test.stream()<br/>        .on('data', function(model){ console.log(&quot;Model: &quot; + model.get('name')); })<br/>        .on('error', function(err){ console.log(&quot;An error is expected: &quot; + err); });<br/>    });<br/>  &lt;/script&gt;<br/></code></pre>
       </div>
     </div>
+    <div class="row">
+      <div class="col-lg-5 col-md-5"><h3>Selecting JSON Templates</h3>
+
+<p>You can use the <code>$template</code> option in your calls to request specific templates from BackboneREST.</p>
+      </div>
+      <div class="col-lg-7 col-md-7">
+        <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row example coffeescript">
+          <pre><code class="language-coffeescript">Project.find {$template: 'project_with_tasks'}, (err, projects_with_tasks) ->
+</code></pre>
+        </div>
+        <div class="row example javascript">
+          <pre><code class="language-javascript">Project.find({$template: 'project_with_tasks'},
+  function(err, projects_with_tasks) {}
+);
+</code></pre>
+        </div>
+      </div>
+    </div>
   </div>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
