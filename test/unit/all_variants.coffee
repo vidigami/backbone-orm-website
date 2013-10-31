@@ -20,3 +20,4 @@ module.exports = (options, callback) ->
       variant_test_parameters.database_url = require('../config/database')[variant]
       require('../generators/website')(variant_test_parameters, callback)
   queue.await callback
+

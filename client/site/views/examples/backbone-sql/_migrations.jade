@@ -1,0 +1,16 @@
+.row
+  .col-lg-5.col-md-5
+    include ./markdown/migrations.md
+  .col-lg-7.col-md-7
+    div.row
+      a.btn.btn-xs.language-toggle.pull-right
+        span CoffeeScript
+        i.glyphicon.glyphicon-random
+    div.row.example.coffeescript
+      pre
+        code.language-coffeescript
+          include ./txt/migrations.coffee.txt
+    div.row.example.javascript
+      pre
+        code.language-javascript
+          include ./txt/migrations.js.txt
