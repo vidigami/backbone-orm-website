@@ -10,14 +10,14 @@ a bit more information, namely filling in the <code>urlRoot</code> property.</p>
 <p>Since we&#39;re using MongoDB here, we&#39;ll use a Sync that knows how to persist to Mongo: <code>MongoSync</code>.</p>
   </div>
   <div class="col-lg-7 col-md-7">
-    <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
-    <div class="row block example coffeescript">
+    <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+    <div class="row example coffeescript">
       <pre><code class="language-coffeescript">class Project extends Backbone.Model
   urlRoot: 'mongodb://localhost:27017/projects'
   sync: require('backbone-mongo').sync(Project)
 </code></pre>
     </div>
-    <div class="row block example javascript">
+    <div class="row example javascript">
       <pre><code class="language-javascript">var Project = Backbone.Model.extend({
   urlRoot: 'mongodb://localhost:27017/projects'
 });

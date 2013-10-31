@@ -19,21 +19,21 @@ localhost:5000/tasks?$sort=&#39;name&#39;&amp;$values=&#39;name&#39;&amp;$limit=
 </code></p>
   </div>
   <div class="col-lg-7 col-md-7">
-    <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div><span>In the browser:</span>
-    <div class="row block example coffeescript">
+    <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div><span>In the browser:</span>
+    <div class="row example coffeescript">
       <pre><code class="language-coffeescript">class Task extends Backbone.Model
   urlRoot: '/tasks'
   sync: require('backbone-http').sync(Task)
 </code></pre>
     </div>
-    <div class="row block example javascript">
+    <div class="row example javascript">
       <pre><code class="language-javascript">var Task = Backbone.Model.extend({
   urlRoot: '/tasks'
 });
 Task.prototype.sync = require('backbone-http').sync(Task);
 </code></pre>
     </div><span>On the server:</span>
-    <div class="row block example coffeescript">
+    <div class="row example coffeescript">
       <pre><code class="language-coffeescript">class Task extends Backbone.Model
   urlRoot: 'mongodb://localhost:27017/tasks'
   sync: require('backbone-mongo').sync(Task)
@@ -41,7 +41,7 @@ Task.prototype.sync = require('backbone-http').sync(Task);
 new RestController(app, {model_type: Task, route: '/tasks'})
 </code></pre>
     </div>
-    <div class="row block example javascript">
+    <div class="row example javascript">
       <pre><code class="language-javascript">var Task = Backbone.Model.extend({
   urlRoot: 'mongodb://localhost:27017/tasks'
 });

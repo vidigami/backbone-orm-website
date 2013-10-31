@@ -13,8 +13,8 @@ the client).</li><li><code>embed</code>: By default, relations are given their o
 a model should only be saved as embedded json in a parent model pass <code>embed: true</code> as an option to the relation.</li></ul>
   </div>
   <div class="col-lg-7 col-md-7">
-    <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
-    <div class="row block example coffeescript">
+    <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+    <div class="row example coffeescript">
       <pre><code class="language-coffeescript">MongoSync = require('backbone-mongo').Sync
 
 # manual_fetch: Tasks will not be loaded when accessing a projects tasks property
@@ -40,7 +40,7 @@ class Project extends Backbone.Model
   sync: MongoSync(Project)
 </code></pre>
     </div>
-    <div class="row block example javascript">
+    <div class="row example javascript">
       <pre><code class="language-javascript">var MongoSync = require('backbone-mongo').Sync;
 
 // manual_fetch: Tasks will not be loaded when accessing a projects tasks property

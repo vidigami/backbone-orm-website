@@ -79,14 +79,14 @@ with a BackboneORM Sync. We pass the Sync our model class.</p>
 models, so we don&#39;t need to specify an <code>urlRoot</code>. Usually we will, so it&#39;s here for clarity.</p>
       </div>
       <div class="col-lg-7 col-md-7">
-        <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
-        <div class="row block example coffeescript">
+        <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row example coffeescript">
           <pre><code class="language-coffeescript">class Project extends Backbone.Model
   urlRoot: '/projects'
   sync: require('backbone-orm').sync(Project)
 </code></pre>
         </div>
-        <div class="row block example javascript">
+        <div class="row example javascript">
           <pre><code class="language-javascript">var Project = Backbone.Model.extend({
   urlRoot: '/projects'
 });
@@ -106,14 +106,14 @@ a bit more information, namely filling in the <code>urlRoot</code> property.</p>
 <p>Since we&#39;re using MongoDB here, we&#39;ll use a Sync that knows how to persist to Mongo: <code>MongoSync</code>.</p>
       </div>
       <div class="col-lg-7 col-md-7">
-        <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
-        <div class="row block example coffeescript">
+        <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row example coffeescript">
           <pre><code class="language-coffeescript">class Project extends Backbone.Model
   urlRoot: 'mongodb://localhost:27017/projects'
   sync: require('backbone-mongo').sync(Project)
 </code></pre>
         </div>
-        <div class="row block example javascript">
+        <div class="row example javascript">
           <pre><code class="language-javascript">var Project = Backbone.Model.extend({
   urlRoot: 'mongodb://localhost:27017/projects'
 });
@@ -129,8 +129,8 @@ Project.prototype.sync = require('backbone-mongo').sync(Project);</code></pre>
 <p><code>save</code>, <code>destroy</code> and <code>fetch</code> work just like you expect from plain Backbone.</p>
       </div>
       <div class="col-lg-7 col-md-7">
-        <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
-        <div class="row block example coffeescript">
+        <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row example coffeescript">
           <pre><code class="language-coffeescript"># Node style
 project.save (err, project) ->
   return console.log 'Oh no an error' if err
@@ -145,7 +145,7 @@ project.save {
 }
 </code></pre>
         </div>
-        <div class="row block example javascript">
+        <div class="row example javascript">
           <pre><code class="language-javascript">// Node style
 project.save(function(err, project) {
   if (err) {
@@ -184,8 +184,8 @@ project.save({
 If it is already loaded it will also be returned directly.</p>
       </div>
       <div class="col-lg-7 col-md-7">
-        <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
-        <div class="row block example coffeescript">
+        <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row example coffeescript">
           <pre><code class="language-coffeescript">MongoSync = require('backbone-mongo').sync
 
 class Project extends Backbone.Model
@@ -212,7 +212,7 @@ Project.findOne {name: 'My project', $include: 'tasks'}, (err, project) ->
   tasks = project.get('tasks')
 </code></pre>
         </div>
-        <div class="row block example javascript">
+        <div class="row example javascript">
           <pre><code class="language-javascript">var MongoSync = require('backbone-mongo').sync;
 
 var Project = Backbone.Model.extend({
@@ -260,8 +260,8 @@ the client).</li><li><code>embed</code>: By default, relations are given their o
 a model should only be saved as embedded json in a parent model pass <code>embed: true</code> as an option to the relation.</li></ul>
       </div>
       <div class="col-lg-7 col-md-7">
-        <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
-        <div class="row block example coffeescript">
+        <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row example coffeescript">
           <pre><code class="language-coffeescript">MongoSync = require('backbone-mongo').Sync
 
 # manual_fetch: Tasks will not be loaded when accessing a projects tasks property
@@ -287,7 +287,7 @@ class Project extends Backbone.Model
   sync: MongoSync(Project)
 </code></pre>
         </div>
-        <div class="row block example javascript">
+        <div class="row example javascript">
           <pre><code class="language-javascript">var MongoSync = require('backbone-mongo').Sync;
 
 // manual_fetch: Tasks will not be loaded when accessing a projects tasks property
@@ -325,8 +325,8 @@ var Project = Backbone.Model.extend({
 <p>Irregardless of the BackboneORM variant and whether you are in the browser or on the server, you can query your models using an identical syntax.</p>
       </div>
       <div class="col-lg-7 col-md-7">
-        <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
-        <div class="row block example coffeescript">
+        <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row example coffeescript">
           <pre><code class="language-coffeescript"># Find the Project with id = 123
 Project.findOne {id: 123}, (err, project) ->
 
@@ -349,7 +349,7 @@ Project.find {$select: ['created_at', 'name']}, (err, array_of_json) ->
 Project.find {$values: ['created_at', 'status']}, (err, array_of_arrays) ->
 </code></pre>
         </div>
-        <div class="row block example javascript">
+        <div class="row example javascript">
           <pre><code class="language-javascript">// Find the Project with id = 123
 Project.findOne({id: 123}, function(err, project) { /* ... */ });
 
@@ -380,8 +380,8 @@ Project.find({$values: ['created_at', 'status']}, function(err, array_of_arrays)
 <p>Using <code>each</code>, <code>stream</code>, and <code>interval</code>, you can iterate over your models in a way that suits the problem you are trying to solve.</p>
       </div>
       <div class="col-lg-7 col-md-7">
-        <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
-        <div class="row block example coffeescript">
+        <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row example coffeescript">
           <pre><code class="language-coffeescript"># Iterate through all items with is_active = true in batches of 200
 Project.each {is_active: true, $each: {fetch: 200}},
   ((project, callback) -> console.log "project: #{project.get('name')}"; callback()),
@@ -404,7 +404,7 @@ Task.interval {$interval: {key: 'created_at', type: 'days', length: 1}},
   (err) -> console.log 'Done'
 </code></pre>
         </div>
-        <div class="row block example javascript">
+        <div class="row example javascript">
           <pre><code class="language-javascript">// Iterate through all items with is_active = true in batches of 200
 Project.each({is_active: true, $each: {fetch: 200}},
   function(project, callback) {console.log('project: ' + project.get('name')); callback()},
@@ -450,21 +450,21 @@ localhost:5000/tasks?$sort=&#39;name&#39;&amp;$values=&#39;name&#39;&amp;$limit=
 </code></p>
       </div>
       <div class="col-lg-7 col-md-7">
-        <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div><span>In the browser:</span>
-        <div class="row block example coffeescript">
+        <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div><span>In the browser:</span>
+        <div class="row example coffeescript">
           <pre><code class="language-coffeescript">class Task extends Backbone.Model
   urlRoot: '/tasks'
   sync: require('backbone-http').sync(Task)
 </code></pre>
         </div>
-        <div class="row block example javascript">
+        <div class="row example javascript">
           <pre><code class="language-javascript">var Task = Backbone.Model.extend({
   urlRoot: '/tasks'
 });
 Task.prototype.sync = require('backbone-http').sync(Task);
 </code></pre>
         </div><span>On the server:</span>
-        <div class="row block example coffeescript">
+        <div class="row example coffeescript">
           <pre><code class="language-coffeescript">class Task extends Backbone.Model
   urlRoot: 'mongodb://localhost:27017/tasks'
   sync: require('backbone-mongo').sync(Task)
@@ -472,7 +472,7 @@ Task.prototype.sync = require('backbone-http').sync(Task);
 new RestController(app, {model_type: Task, route: '/tasks'})
 </code></pre>
         </div>
-        <div class="row block example javascript">
+        <div class="row example javascript">
           <pre><code class="language-javascript">var Task = Backbone.Model.extend({
   urlRoot: 'mongodb://localhost:27017/tasks'
 });
@@ -491,8 +491,8 @@ new RestController(app, {model_type: Task, route: '/tasks'});
 <p>When using BackboneREST and BackboneHTTP, you can select the template by passing the $template parameter to your query.</p>
       </div>
       <div class="col-lg-7 col-md-7">
-        <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
-        <div class="row block example coffeescript">
+        <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row example coffeescript">
           <pre><code class="language-coffeescript">module.exports =
   # select properties
   task:             {$select: ['id', 'name']}
@@ -511,7 +511,7 @@ new RestController(app, {model_type: Task, route: '/tasks'});
   total_commits:    {key: 'commits', query: {$count: true}}
 </code></pre>
         </div>
-        <div class="row block example javascript">
+        <div class="row example javascript">
           <pre><code class="language-javascript">module.exports = {
   // select properties
   task: {$select: ['id', 'name']},
