@@ -1,11 +1,7 @@
 {
-  "name": "corporate-vidigami",
+  "name": "backbone-orm-website",
   "version": "0.0.1",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://bitbucket.org/vidigami/corporate.vidigami.com.git"
-  },
+  "repository": {"type": "git", "url": "https://bitbucket.org/vidigami/backbone-orm-website.git"},
   "scripts": {
     "start": "grunt",
     "test": "NODE_ENV=test mocha test/suite.coffee --compilers coffee:coffee-script --reporter spec"

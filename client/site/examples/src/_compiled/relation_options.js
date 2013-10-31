@@ -15,7 +15,7 @@
 
     Project.prototype.urlRoot = "mongodb://localhost:27017/projects";
 
-    Project.schema = {
+    Project.prototype.schema = {
       tasks: function() {
         return [
           'hasMany', Task, {
@@ -41,7 +41,7 @@
 
     Project.prototype.urlRoot = "mongodb://localhost:27017/projects";
 
-    Project.schema = {
+    Project.prototype.schema = {
       tasks: function() {
         return [
           'hasMany', Task, {
@@ -67,7 +67,7 @@
 
     Project.prototype.urlRoot = "mongodb://localhost:27017/projects";
 
-    Project.schema = {
+    Project.prototype.schema = {
       tasks: function() {
         return [
           'hasMany', Task, {

@@ -1,3 +1,6 @@
-### Rest Controller
+### BackboneRest and BackboneHTTP
 
-BackboneRest provides controller
+BackboneRest provides a RESTful controller for JSON APIs from Node.js.
+
+
+BackboneHTTP provides an interface for consuming JSON APIs through HTTP.
