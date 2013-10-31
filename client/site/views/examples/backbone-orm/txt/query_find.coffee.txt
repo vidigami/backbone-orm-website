@@ -12,3 +12,9 @@ Project.find {id: {$in: [1, 2, 3]}}, (err, projects) ->
 
 # A shortcut for `$in` when we're working with ids
 Project.find {$ids: [1, 2, 3]}, (err, projects) ->
+
+# Select named properties from each model
+Project.find {$select: ['created_at', 'name']}, (err, array_of_json) ->
+
+# Select values in the specified order
+Project.find {$values: ['created_at', 'status']}, (err, array_of_arrays) ->
