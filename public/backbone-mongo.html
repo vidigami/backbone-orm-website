@@ -60,6 +60,55 @@
 
 <p>In addition, BackboneMongo using CouchDB-style &#39;_rev&#39; versioning to ensure coherency of data.</p>
       </div>
+      <div class="col-lg-7 col-md-7">
+        <div class="row"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row example coffeescript">
+          <pre><code class="language-coffeescript">class Change extends Backbone.Model
+  model_name: 'Change'
+  sync: require('backbone-orm').sync(Change)
+
+class Task extends Backbone.Model
+  urlRoot: 'mongodb://localhost:27017/tasks'
+  schema:
+    project: -> ['belongsTo', Project]
+    changes: -> ['hasMany', Change, embed: true]
+  sync: require('backbone-mongo').sync(Task)
+
+class Project extends Backbone.Model
+  urlRoot: 'mongodb://localhost:27017/projects'
+  schema:
+    tasks: -> ['hasMany', Task]
+    changes: -> ['hasMany', Change, embed: true]
+  sync: require('backbone-mongo').sync(Project)
+</code></pre>
+        </div>
+        <div class="row example javascript">
+          <pre><code class="language-javascript">var Change = Backbone.Model.extend({
+  model_name: 'Change',
+});
+Task.prototype.sync = require('backbone-orm').sync(Change);
+
+var Task = Backbone.Model.extend({
+  urlRoot: 'mongodb://localhost:27017/tasks',
+  schema: {
+    project: function() { return ['belongsTo', Project]; }
+    changes: function() { return ['hasMany', Change, {embed: true}]; }
+  }
+});
+Task.prototype.sync = require('backbone-mongo').sync(Task);
+
+var Project = Backbone.Model.extend({
+  urlRoot: 'mongodb://localhost:27017/projects',
+  schema: {
+    tasks: function() { return ['hasMany', Task]; }
+    changes: function() { return ['hasMany', Change, {embed: true}]; }
+  }
+});
+Project.prototype.sync = require('backbone-mongo').sync(Project);
+
+</code></pre>
+        </div>
+      </div>
     </div>
   </div>
   <script>
