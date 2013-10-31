@@ -4,6 +4,9 @@ fs = require 'fs'
 BUILD_TASKS = ['copy', 'concat', 'coffee', 'stylus', 'jade']
 RELEASE_TASKS = BUILD_TASKS.concat(['uglify:site', 'cssmin:site'])
 
+copyOptions = (variant) ->
+  {files: [{expand: true, cwd: "client/site/views/examples/#{variant}/src/", src: '*', filter: 'isFile', dest: "client/site/views/examples/#{variant}/txt", rename: (dest, src) -> "#{dest}/#{src}.txt"}]}
+
 module.exports = (grunt) ->
 
   grunt.initConfig
@@ -15,18 +18,14 @@ module.exports = (grunt) ->
     copy:
       vendor_assets: {files: [{expand: true, cwd: 'client/vendor/assets', src: '**', dest: 'public'}]}
       site_assets: {files: [{expand: true, cwd: 'client/site/assets', src: '**', dest: 'public'}]}
-      txt: {files: [{
-        expand: true,
-        cwd: 'client/site/examples/src/',
-        src: '*',
-        filter: 'isFile',
-        dest: 'client/site/examples/txt',
-        rename: (dest, src) -> "#{dest}/#{src}.txt"
-      }]}
+      'backbone-orm': copyOptions('backbone-orm')
+      'backbone-rest': copyOptions('backbone-rest')
+      'backbone-http': copyOptions('backbone-http')
+      'backbone-sql': copyOptions('backbone-sql')
+      'backbone-mongo': copyOptions('backbone-mongo')
 
     coffee:
       site: {expand: true, cwd: 'client/site/scripts', src: '**/*.coffee', dest: 'public/js', ext: '.js'}
-      examples: {expand: true, cwd: 'client/site/examples/src', src: '**/*.coffee', dest: 'client/site/examples/src/_compiled', ext: '.js'}
 
     jade:
       site:
