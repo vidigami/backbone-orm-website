@@ -10,8 +10,8 @@ Assuming you Node.js app in on port 5000, you can request tasks by name:
 localhost:5000/tasks?name='Bob'
 ```
 
-or even ask for the first 100 names of names of tasks:
+or even ask for the first 10 names of names of tasks:
 
 ```
-localhost:5000/tasks?$sort='name'&$values='name'&$limit=100
+localhost:5000/tasks?$sort=name&$values=name&$limit=10
 ```
