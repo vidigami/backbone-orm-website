@@ -23,8 +23,8 @@ Project.find({$select: ['created_at', 'name']}, function(err, array_of_json) {})
 Project.find({$values: ['created_at', 'status']}, function(err, array_of_arrays) {});
 
 // Find active items in pages using cursor syntax (Models or JSON)
-Project.cusror({is_active: true}).limit(10).offset(20).toModels function(err, projects) {});
-Project.cusror({is_active: true}).limit(10).offset(20).toJSON function(err, projects_json) {});
+Project.cursor({is_active: true}).limit(10).offset(20).toModels function(err, projects) {});
+Project.cursor({is_active: true}).limit(10).offset(20).toJSON function(err, projects_json) {});
 
 // Find completed tasks in a project sorted by name
-project.cusror('tasks', {status: 'completed'}).sort('name').toModels function(err, tasks) {});
+project.cursor('tasks', {status: 'completed'}).sort('name').toModels function(err, tasks) {});
