@@ -1,0 +1,42 @@
+
+<div class="row block">
+  <div class="col-lg-5 col-md-5"><h3>Security</h3>
+
+<p>You are able to use Express middleware to secure you application.</p>
+  </div>
+  <div class="col-lg-7 col-md-7">
+    <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+    <div class="row block example coffeescript">
+      <pre><code class="language-coffeescript">ensureLoggedIn = require 'connect-ensure-login'
+
+customAuthorization = (req, res, next) ->
+  unless req.user.canAccessTask(req)
+    return res.status(401).send('you cannot access this task')
+  next()
+
+new RestController(app, {
+  auth: [ensureLoggedIn('/login'), customAuthorization]
+  model_type: Task
+  route: '/tasks'
+})
+</code></pre>
+    </div>
+    <div class="row block example javascript">
+      <pre><code class="language-javascript">var ensureLoggedIn = require('connect-ensure-login');
+
+var customAuthorization = function(req, res, next) {
+  if (!req.user.canAccessTask(req)) {
+    return res.status(401).send('you cannot access this task');
+  }
+  return next();
+};
+
+new RestController(app, {
+  auth: [ensureLoggedIn('/login'), customAuthorization],
+  model_type: Task,
+  route: '/tasks'
+});
+</code></pre>
+    </div>
+  </div>
+</div>

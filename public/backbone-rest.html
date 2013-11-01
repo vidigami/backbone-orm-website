@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>BackboneORM</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/png" href="/images/favicon-48x48.png">
+  <link rel="stylesheet" href="./css/vendor.css">
+  <link rel="stylesheet" href="./css/site.css">
+  <script src="./js/vendor.js"></script>
+  <script src="./js/site.js"></script>
+</head>
+<body>
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header"><a href="https://www.vidigami.com" class="pull-left lizard"><img src="./images/vidigami-lizard.png"/></a><a href="./index.html" class="navbar-brand">backbone-orm</a>
+        <button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      </div>
+      <div id="navbar-collapse" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="./index.html">ORM</a></li>
+          <li class="divider"></li>
+          <li><a href="./backbone-http.html">HTTP</a></li>
+          <li class="active"><a href="./backbone-rest.html">REST</a></li>
+          <li class="divider"></li>
+          <li><a href="./backbone-mongo.html">MongoDB</a></li>
+          <li><a href="./backbone-sql.html">SQL</a></li>
+          <li class="divider"></li>
+          <li><a href="./docs/index.html">Docs</a></li>
+          <li><a href="https://github.com/vidigami/backbone-orm">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="jumbo">
+    <div class="container">
+      <div class="jumbotron">
+        <p class="hidden-sm hidden-xs"><img src="./images/backbone-rest-logo-large.png"></p>
+        <p class="hidden-lg hidden-md"><img src="./images/backbone-rest-logo-small.png"></p>
+        <p class="subtitle">A RESTful controller for BackboneORM</p>
+        <div class="row block">
+          <div class="col-lg-12 col-md-12">
+            <h2>Install</h2>
+            <pre><code>npm install backbone-rest</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container main">
+    <div class="row block">
+      <div class="col-lg-5 col-md-5"><h3>Introduction</h3>
+
+<p>By using BackboneREST on the server and BackboneORM&#39;s JSON rendering DSL, you can save time in defining JSON APIs.</p>
+      </div>
+      <div class="col-lg-7 col-md-7">
+        <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row block example coffeescript">
+          <pre><code class="language-coffeescript">Backbone = require 'backbone'
+RestController = require 'backbone-rest'
+
+class Task extends Backbone.Model
+  urlRoot: 'mongodb://localhost:27017/tasks'
+  sync: require('backbone-mongo').sync(Task)
+
+new RestController(app, {model_type: Task, route: '/tasks'})
+</code></pre>
+        </div>
+        <div class="row block example javascript">
+          <pre><code class="language-javascript">var Backbone = require('backbone');
+var RestController = require('backbone-rest');
+
+var Task = Backbone.Model.extend({
+  urlRoot: 'mongodb://localhost:27017/tasks'
+});
+Task.prototype.sync = require('backbone-mongo').sync(Task);
+
+new RestController(app, {model_type: Task, route: '/tasks'});
+</code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="row block">
+      <div class="col-lg-5 col-md-5"><h3>JSON DSL</h3>
+
+<p>BackboneORM provides a DSL for rendering JSON. It is consistent with BackboneORM&#39;s query syntax and BackboneREST&#39;s url-based query language.</p>
+      </div>
+      <div class="col-lg-7 col-md-7">
+        <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row block example coffeescript">
+          <pre><code class="language-coffeescript">new RestController(app, {
+  model_type: Task
+  route: '/tasks'
+  templates:
+    show: {$select: ['id', 'name']}
+    show_with_stuff: {$select: ['id', 'name', 'stuff']}
+  default_template: 'show'
+})
+</code></pre>
+        </div>
+        <div class="row block example javascript">
+          <pre><code class="language-javascript">var RestController = require('backbone-rest');
+
+new RestController(app, {
+  model_type: Task,
+  route: '/tasks',
+  templates: {
+    show: { $select: ['id', 'name'] },
+    show_with_stuff: { $select: ['id', 'name', 'stuff']}
+  },
+  default_template: 'show'
+});
+</code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="row block">
+      <div class="col-lg-5 col-md-5"><h3>Security</h3>
+
+<p>You are able to use Express middleware to secure you application.</p>
+      </div>
+      <div class="col-lg-7 col-md-7">
+        <div class="row block"><a class="btn btn-xs language-toggle pull-right"><span>CoffeeScript</span><i class="glyphicon glyphicon-random"></i></a></div>
+        <div class="row block example coffeescript">
+          <pre><code class="language-coffeescript">ensureLoggedIn = require 'connect-ensure-login'
+
+customAuthorization = (req, res, next) ->
+  unless req.user.canAccessTask(req)
+    return res.status(401).send('you cannot access this task')
+  next()
+
+new RestController(app, {
+  auth: [ensureLoggedIn('/login'), customAuthorization]
+  model_type: Task
+  route: '/tasks'
+})
+</code></pre>
+        </div>
+        <div class="row block example javascript">
+          <pre><code class="language-javascript">var ensureLoggedIn = require('connect-ensure-login');
+
+var customAuthorization = function(req, res, next) {
+  if (!req.user.canAccessTask(req)) {
+    return res.status(401).send('you cannot access this task');
+  }
+  return next();
+};
+
+new RestController(app, {
+  auth: [ensureLoggedIn('/login'), customAuthorization],
+  model_type: Task,
+  route: '/tasks'
+});
+</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-36443094-3', 'vidigami.github.io');
+    ga('send', 'pageview');
+  </script>
+</body>

@@ -1,6 +1,11 @@
 extends _base
 
-block body
+include _includes/_nav
+
+block navbar
+  mixin navbar('HTTP')
+
+block content
   .jumbo
     .container
       .jumbotron
