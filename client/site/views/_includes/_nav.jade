@@ -1,38 +1,29 @@
+mixin navbar(page)
+  - var ITEMS = [{'ORM': './index.html'}, 'divider', {'HTTP': './backbone-http.html'}, {'REST': './backbone-rest.html'}, 'divider', {'MongoDB': './backbone-mongo.html'}, {'SQL': './backbone-sql.html'}, 'divider', {'Docs': './docs/index.html'}, {'GitHub': 'https://github.com/vidigami/backbone-orm'}]
+  .navbar.navbar-default.navbar-fixed-top
+    .container
 
-.navbar.navbar-default.navbar-fixed-top
-  .container
+      .navbar-header
+        a.pull-left.lizard(href='https://www.vidigami.com')
+          img(src='./images/vidigami-lizard.png')
+        a.navbar-brand(href='./index.html') backbone-orm
 
-    .navbar-header
-      a.pull-left.lizard(href='https://www.vidigami.com')
-        img(src='./images/vidigami-lizard.png')
-      a.navbar-brand(href='./index.html') backbone-orm
+        button(type="button", class="navbar-toggle", data-toggle="collapse", data-target="#navbar-collapse")
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
 
-      button(type="button", class="navbar-toggle", data-toggle="collapse", data-target="#navbar-collapse")
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-
-    .navbar-collapse.collapse#navbar-collapse
-      ul.nav.navbar-nav.navbar-right
-        li
-          a(href='./docs/index.html') Docs
-        li
-          a(href='https://github.com/vidigami/backbone-orm') GitHub
-        li.dropdown
-          a.dropdown-toggle(href='#', data-toggle='dropdown')
-            | Components
-            b.caret
-          ul.dropdown-menu
-            li
-              a(href='./index.html') backbone-orm
-            li.divider
-            li
-              a(href='./backbone-mongo.html') backbone-mongo
-            li
-              a(href='./backbone-sql.html') backbone-sql
-            li.divider
-            li
-              a(href='./backbone-http.html') backbone-http
-            li
-              a(href='./backbone-rest.html') backbone-rest
+      .navbar-collapse.collapse#navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          each item in ITEMS
+            if (typeof(item) =='string')
+              li.divider
+            else
+              each url, label in item
+                if (page == label)
+                  li.active
+                    a(href='#{url}') #{label}
+                else
+                  li
+                    a(href='#{url}') #{label}
