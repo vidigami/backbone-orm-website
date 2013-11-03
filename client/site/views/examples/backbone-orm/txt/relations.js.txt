@@ -27,3 +27,9 @@ Project.findOne({name: 'My project', $include: 'tasks'}, function(err, project) 
   // Tasks are already loaded, we can just use them
   var tasks = project.get('tasks');
 });
+
+// Find a project and its tasks using cursor with include
+Project.cursor({name: 'My project'}).include('tasks').toModel function(err, project) {
+  // Tasks are already loaded, we can just use them
+  var tasks = project.get('tasks');
+});

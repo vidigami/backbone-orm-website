@@ -7,7 +7,7 @@ module.exports =
 
   # relationship render function
   project_custom:   (model, options, callback) ->
-    _.pick(model.attributes, 'id', 'name'); callback()
+    callback(null, _.pick(model.attributes, 'id', 'name'))
 
   # relationship inferred with query
   commits:          {query: {active: false}}

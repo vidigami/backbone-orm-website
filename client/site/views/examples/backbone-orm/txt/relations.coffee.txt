@@ -22,3 +22,8 @@ Project.findOne {name: 'My project'}, (err, project) ->
 Project.findOne {name: 'My project', $include: 'tasks'}, (err, project) ->
   # Tasks are already loaded, we can just use them
   tasks = project.get('tasks')
+
+# Find a project and its tasks using cursor with include
+Project.cursor({name: 'My project'}).include('tasks').toModel (err, project) ->
+  # Tasks are already loaded, we can just use them
+  tasks = project.get('tasks')

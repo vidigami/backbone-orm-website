@@ -7,7 +7,7 @@ module.exports = {
 
   // relationship render function
   project_custom: function(model, options, callback) {
-    _.pick(model.attributes, 'id', 'name'); return callback();
+    callback(null, _.pick(model.attributes, 'id', 'name'));
   },
 
   // relationship inferred with query
