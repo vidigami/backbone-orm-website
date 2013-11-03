@@ -1,0 +1,20 @@
+extends _base
+
+include _includes/_nav
+include _includes/_header
+
+block navbar
+  mixin navbar('ORM')
+
+block content
+  .jumbo
+    .container
+      .jumbotron
+          h1 Whip up a RESTful API
+          p in about the time it takes to make a nice cup of coffee
+
+  .container.main
+
+    include examples/getting_started/intro
+    include examples/getting_started/installation
+

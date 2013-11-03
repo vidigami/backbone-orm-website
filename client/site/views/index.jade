@@ -1,28 +1,13 @@
 extends _base
 
 include _includes/_nav
+include _includes/_header
 
 block navbar
   mixin navbar('ORM')
 
 block content
-  .jumbo
-    .container
-      .jumbotron
-        p.hidden-sm.hidden-xs
-          img(src='./images/backbone-orm-logo-large.png')
-        p.hidden-lg.hidden-md
-          img(src='./images/backbone_orm-logo-small.png')
-        p.subtitle A polystore ORM for Node.js and the browser
-        .row.block
-          .col-lg-6.col-md-6
-            h2 Install
-            pre
-              code
-                | npm install backbone-orm
-          .col-lg-6.col-md-6
-            h2 Get the client JavaScript
-            a.btn.btn-lg(href='https://raw.github.com/vidigami/backbone-orm/0.5.0/client/backbone-orm.zip', target='_blank') Download Latest (0.5.0)
+  mixin header('orm')
 
   .container.main
     include examples/backbone-orm/_introduction
