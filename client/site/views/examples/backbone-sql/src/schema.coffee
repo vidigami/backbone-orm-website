@@ -1,5 +1,3 @@
-SQLSync = require('backbone-sql').sync
-
 class Project extends Backbone.Model
 
   # Database connection and table name are specified with the urlRoot
@@ -12,4 +10,4 @@ class Project extends Backbone.Model
     name: ['String', unique: true, indexed: true]
 
   # Kick it off by setting the model's sync to an SQLSync
-  sync: SQLSync(Project)
+  sync: require('backbone-sql').sync(Project)

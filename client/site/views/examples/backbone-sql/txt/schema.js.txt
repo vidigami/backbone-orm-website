@@ -1,5 +1,3 @@
-var SQLSync = require('backbone-sql').sync;
-
 var Project = Backbon.Model.extend({
 
   // Database connection and table name are specified with the urlRoot
@@ -14,4 +12,4 @@ var Project = Backbon.Model.extend({
 });
 
 // Kick it off by setting the model's sync to an SQLSync
-Project.prototype.sync = SQLSync(Project);
+Project.prototype.sync = require('backbone-sql').sync(Project);
