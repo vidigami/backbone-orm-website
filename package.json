@@ -35,8 +35,8 @@
     "backbone-mongo": "*",
     "backbone-http": "*",
     "backbone-rest": "*",
-    "underscore": "1.5.x",
-    "backbone": ">=1.0.0",
+    "underscore": "1.x",
+    "backbone": "1.x",
     "moment": "2.x"
   }
 }
