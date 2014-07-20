@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "repository": {"type": "git", "url": "https://github.com/vidigami/backbone-orm-website.git"},
   "scripts": {
-    "start": "grunt",
-    "test": "NODE_ENV=test mocha test/suite.coffee --compilers coffee:coffee-script/register --reporter spec"
+    "start": "grunt"
   },
   "engines": {
     "node": "0.10.x",
@@ -29,14 +28,7 @@
     "grunt-contrib-uglify": "*",
     "grunt-contrib-cssmin": "*",
     "mocha": "*",
-    "powerset": "0.0.x",
-    "backbone-orm": "*",
-    "backbone-sql": "*",
-    "backbone-mongo": "*",
-    "backbone-http": "*",
-    "backbone-rest": "*",
     "underscore": "1.x",
-    "backbone": "1.x",
-    "moment": "2.x"
+    "backbone": "1.x"
   }
 }
