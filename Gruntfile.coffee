@@ -32,7 +32,6 @@ module.exports = (grunt) ->
         options:
           client: false
           pretty: true
-          src_path: 'client/site/examples/src/'
         files: {'public/': ['client/site/views/**/*.jade']}
 
     stylus:
